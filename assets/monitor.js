@@ -41,14 +41,16 @@
   function escape(s) {return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
   function localized(text) {let s=String(text||'');for(const [a,b]of [['Long March','长征'],['Zhuque','朱雀'],['Tianzhou','天舟'],['Shenzhou','神舟'],['Hyperbola','双曲线'],['Tianlong','天龙'],['Pallas-1','智神星一号'],['Ceres-1','谷神星一号'],['Unknown Payload','载荷未公布']])s=s.replaceAll(a,b);return s;}
   function sourceLink(url) {try {const u=new URL(url);return u.protocol==='https:'&&u.hostname==='ll.thespacedevs.com'?u.href:'#monitor-sources';}catch{return '#monitor-sources';}}
-  const api={timing,trip,yearOf,stamp,dateText,escape,sourceLink};
+  function tourismScope(r, scope='china') {return Boolean(r.china) && (!r.country_code||r.country_code==='CHN') && yearOf(r)==='2027' && (scope!=='hainan'||Boolean(r.hainan));}
+  function relevantChange(c, items) {const current=items.find(r=>r.id===c.id);return Boolean(current&&tourismScope(current)) || tourismScope(c) || Boolean(c.china)&&[c.before?.net,c.after?.net].some(n=>String(n||'').startsWith('2027'));}
+  const api={timing,trip,yearOf,stamp,dateText,escape,sourceLink,tourismScope,relevantChange};
   if(typeof module!=='undefined'&&module.exports) module.exports=api;
   if(typeof document==='undefined') return;
   const $=id=>document.getElementById(id);
-  let snapshot={items:[]}, health={}, changes={items:[]}, page=1;
+  let snapshot={items:[]}, health={}, changes={items:[]}, editorial={items:[]}, page=1;
   let scope='china';
-  const state={query:'',year:'',category:'',certainty:'',pageSize:24};
-  function scoped(r) {return scope==='global'||(scope==='hainan'?r.hainan:r.china);}
+  const state={query:'',year:'2027',category:'',certainty:'',pageSize:24};
+  function scoped(r) {return tourismScope(r,scope);}
   function chosen() {
     const q=state.query.trim().toLowerCase();
     return snapshot.items.filter(r=>scoped(r)&&(!state.year||yearOf(r)===state.year)&&(!state.category||r.category===state.category)&&(!state.certainty||(timing(r).known?'known':'tbd')===state.certainty)&&(!q||[localized(r.name),localized(r.rocket),r.name,r.mission,r.rocket,r.operator,r.site,r.pad,r.hainan?'海南 文昌':'',r.china?'中国':''].join(' ').toLowerCase().includes(q))).sort((a,b)=>{
@@ -60,46 +62,54 @@
     const age=snapshot.fetched_at?(Date.now()-new Date(snapshot.fetched_at).getTime())/36e5:Infinity;
     const bad=health.state!=='ok'||age>18||!snapshot.complete;
     $('lm-health').className='lm-health'+(bad?' lm-warning':'');
-    $('lm-health').textContent= !snapshot.items.length ? '尚未取得完整任务快照。不是“没有发射任务”，请检查采集状态。' : bad ? `数据需留意：${health.message||'快照已超过18小时未更新'}。最后成功：${stamp(snapshot.fetched_at)}。` : `最近完整采集：${stamp(snapshot.fetched_at)}（北京时间） · ${snapshot.pages}页 / ${snapshot.source_count}条源记录`;
+    $('lm-health').textContent= !snapshot.items.length ? '尚未取得完整任务快照。不是“没有发射任务”，请检查采集状态。' : bad ? `数据需留意：${age>18?'快照已超过18小时未成功更新':health.message||'采集状态需要核对'}。最后成功：${stamp(snapshot.fetched_at)}。` : `最近完整采集：${stamp(snapshot.fetched_at)}（北京时间） · ${snapshot.pages}页 / ${snapshot.source_count}条源记录`;
     $('lm-attempt').textContent=`最近尝试 ${stamp(health.last_attempt_at)} · 每6小时检查一次，GitHub调度可能延迟。采集时间不等于官方核验时间。`;
-    $('lm-total').textContent=snapshot.items.length;
-    $('lm-china').textContent=snapshot.items.filter(r=>r.china).length;
-    $('lm-hainan').textContent=snapshot.items.filter(r=>r.hainan).length;
-    $('lm-year').textContent=snapshot.items.filter(r=>r.hainan&&yearOf(r)==='2027').length;
+    const domestic=snapshot.items.filter(r=>tourismScope(r));
+    $('lm-total').textContent=domestic.length;
+    $('lm-china').textContent=domestic.filter(r=>timing(r).known&&!timing(r).expired).length;
+    $('lm-hainan').textContent=domestic.filter(r=>r.hainan).length;
+    $('lm-year').textContent=domestic.filter(r=>!timing(r).known||timing(r).expired).length;
+  }
+  function renderEditorial() {
+    const ok=editorial.check_status==='ok';
+    $('editorial-status').textContent=`最近核验尝试：${stamp(editorial.last_attempt_at)} · 最近成功核验：${stamp(editorial.checked_at)} · ${ok?'本轮核验已记录':'核验未成功或未初始化，保留旧结论'}。结论变更：${stamp(editorial.content_updated_at)}。`;
+    $('editorial-items').innerHTML=(editorial.items||[]).map(r=>`<article class="panel"><h3>${escape(r.name)}</h3><p><b>${escape(r.evidence_level)}</b> · ${escape(r.date_status)}</p><p>${escape(r.note)}</p><p>${(r.sources||[]).map(src=>{let href='';try{const u=new URL(src.url);if(u.protocol==='https:')href=u.href;}catch{}return href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(src.title)} ↗</a>`:'';}).join(' · ')}</p></article>`).join('')||'<p>暂无独立核验记录；请保留未知状态。</p>';
+    $('holiday-status').textContent=editorial.holidays?.note||'2027放假调休尚未核实，暂不计算确定的假期重合。';
   }
   function render() {
-    renderHealth();
+    renderHealth();renderEditorial();
     const rows=chosen(), size=state.pageSize||Math.max(rows.length,1), pages=Math.max(1,Math.ceil(rows.length/size));page=Math.min(page,pages);
     $('lm-count').textContent=`筛选出 ${rows.length} 条 · 显示 ${rows.length?(page-1)*size+1:0}–${Math.min(page*size,rows.length)} · 时间均为北京时间`;
     $('lm-cards').innerHTML=rows.slice((page-1)*size,page*size).map(r=>{
       const t=timing(r), travel=trip(r), status=statusNames[r.status_id]||r.status||'状态待定';
       return `<article class="lm-card"><div class="lm-tags"><span class="lm-tag ${r.hainan?'lm-green':''}">${r.hainan?'海南 / 文昌':r.china?'中国':'境外'}</span><span class="lm-tag">${escape(categories[r.category]||'未分类')}</span><span class="lm-tag">${escape(status)}</span></div><h3>${escape(localized(r.name))}</h3><p class="lm-time ${t.expired?'lm-expired':''}">${escape(t.label)}</p><p class="lm-sub">${escape(t.detail)}</p><dl><dt>火箭</dt><dd>${escape(localized(r.rocket))}</dd><dt>运营方</dt><dd>${escape(r.operator)}</dd><dt>场址</dt><dd>${escape(r.site)}<small>${escape(r.pad)}</small></dd><dt>源更新</dt><dd>${r.source_updated_at?escape(stamp(r.source_updated_at)):'待定'}</dd></dl><div class="lm-trip">${escape(travel.text)}${travel.date?` <a href="./guide.html?launch=${travel.date}#calendar">查看这周行程 →</a>`:''}</div><footer><a href="${escape(sourceLink(r.source_url))}" target="_blank" rel="noopener noreferrer">LL2 原始任务记录 ↗</a><span>第三方线索</span></footer></article>`;
-    }).join('') || '<div class="lm-empty">当前筛选没有记录。清空搜索或切换“全部年份”；未知年份不归入2027。未列出不代表没有发射计划。</div>';
+    }).join('') || '<div class="lm-empty">当前筛选没有2027中国任务记录。可清空搜索或查看国内全部场址；未知年份不归入2027。未列出不代表没有发射计划。</div>';
     $('lm-page').textContent=`第 ${page} / ${pages} 页`;$('lm-prev').disabled=page<=1;$('lm-next').disabled=page>=pages;
-    const log=(changes.items||[]).filter(scoped).slice(0,8);
+    const log=(changes.items||[]).filter(c=>relevantChange(c,snapshot.items)&&(scope!=='hainan'||c.hainan)).slice(0,8);
     $('lm-changes').innerHTML=log.map(c=>`<li><b>${escape(c.name)}</b><span>${escape(stamp(c.at))} · ${{added:'新增公开条目',changed:'记录有变化',removed:'已移出待发列表（不等于确认发射成功）'}[c.type]||'变化'}${c.fields?.length?'：'+escape(c.fields.join(' / ')):''}</span></li>`).join('')||'<li>暂无可显示的变化记录。首次采集只建立基线，不编造历史改期。</li>';
   }
   async function readJSON(path) {const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw new Error('HTTP '+response.status);return response.json();}
   async function refresh() {
     $('lm-refresh').disabled=true;
     try {
-      const [d,s,c]=await Promise.all([readJSON('./data/launches.json'),readJSON('./data/status.json'),readJSON('./data/changes.json').catch(()=>({items:[]}))]);
+      const [d,s,c,e]=await Promise.all([readJSON('./data/launches.json'),readJSON('./data/status.json'),readJSON('./data/changes.json').catch(()=>({items:[]})),readJSON('./data/editorial.json').catch(()=>null)]);
       if(!d.complete||!Array.isArray(d.items)||!d.items.length)throw new Error('非完整快照');
-      snapshot=d;health=s;changes=c;page=1;render();
+      snapshot=d;health=s;changes=c;if(e)editorial=e;page=1;render();
       $('lm-feedback').textContent='已重新读取网站保存的数据；此按钮不直接调用发射源。';
     } catch(e) {
       render();$('lm-feedback').textContent=`读取网站数据失败，${snapshot.items.length?'保留页面内上次完整快照':'当前没有可用任务数据'}。${e.message}`;
     } finally {$('lm-refresh').disabled=false;}
   }
-  try {const seed=JSON.parse($('launch-seed')?.textContent||'{}');snapshot=seed.launches||snapshot;health=seed.status||health;changes=seed.changes||changes;}catch{}
+  try {const seed=JSON.parse($('launch-seed')?.textContent||'{}');snapshot=seed.launches||snapshot;health=seed.status||health;changes=seed.changes||changes;editorial=seed.editorial||editorial;}catch{}
   for(const button of document.querySelectorAll('[data-lm-scope]')) button.addEventListener('click',()=>{
     scope=button.dataset.lmScope;page=1;for(const b of document.querySelectorAll('[data-lm-scope]')){b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));}render();
   });
   for(const [id,key] of [['lm-search','query'],['lm-year-filter','year'],['lm-category','category'],['lm-certainty','certainty'],['lm-size','pageSize']]) $(id).addEventListener(id==='lm-search'?'input':'change',e=>{state[key]=key==='pageSize'?Number(e.target.value):e.target.value;page=1;render();});
   $('lm-prev').addEventListener('click',()=>{page--;render();$('lm-list').scrollIntoView({block:'start'});});
   $('lm-next').addEventListener('click',()=>{page++;render();$('lm-list').scrollIntoView({block:'start'});});
-  $('lm-clear').addEventListener('click',()=>{for(const [id,key] of [['lm-search','query'],['lm-year-filter','year'],['lm-category','category'],['lm-certainty','certainty']]){$(id).value='';state[key]='';}page=1;render();});
+  $('lm-clear').addEventListener('click',()=>{for(const [id,key] of [['lm-search','query'],['lm-year-filter','year'],['lm-category','category'],['lm-certainty','certainty']]){$(id).value=key==='year'?'2027':'';state[key]=key==='year'?'2027':'';}page=1;render();});
   $('lm-refresh').addEventListener('click',refresh);
   $('lm-export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({fetched_at:snapshot.fetched_at,scope,items:chosen()},null,2)],{type:'application/json;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='launch-tasks.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);});
   render(); if(location.protocol!=='file:') refresh();
 })(typeof globalThis==='undefined'?this:globalThis);
+

@@ -6,9 +6,17 @@ import json
 import shutil
 import threading
 from pathlib import Path
+from datetime import datetime, timezone, timedelta
 from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+def tourism_row(r):
+    net = r.get('net')
+    if not net or not r.get('china') or r.get('country_code') not in (None, '', 'CHN'):
+        return False
+    precise = str(r.get('precision') or '').lower() in ('second', 'minute', 'hour', 'day')
+    year = str(datetime.fromisoformat(net.replace('Z', '+00:00')).astimezone(timezone(timedelta(hours=8))).year) if precise else net[:4]
+    return year == '2027'
 async def check():
     out = ROOT / '_site'
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(out))
@@ -25,11 +33,19 @@ async def check():
         page.on('pageerror', lambda e: errors.append(str(e)))
         await page.goto(base, wait_until='networkidle')
         data = json.loads((out / 'data/launches.json').read_text())
-        await page.locator('[data-lm-scope="global"]').click()
+        assert await page.locator('[data-lm-scope="global"]').count() == 0
+        assert await page.locator('#lm-year-filter').input_value() == '2027'
+        editorial = json.loads((out / 'data/editorial.json').read_text())
+        assert await page.locator('#editorial-items article').count() == len(editorial.get('items', []))
+        assert await page.locator('#holiday-status').inner_text() == editorial['holidays']['note']
         await page.locator('#lm-size').select_option('0')
-        assert await page.locator('.lm-card').count() == len(data.get('items', []))
+        assert await page.locator('.lm-card').count() == sum(tourism_row(r) for r in data.get('items', []))
         await page.locator('[data-lm-scope="hainan"]').click()
-        assert await page.locator('.lm-card').count() == sum(bool(r['hainan']) for r in data.get('items', []))
+        assert await page.locator('.lm-card').count() == sum(tourism_row(r) and bool(r['hainan']) for r in data.get('items', []))
+        await page.locator('#lm-search').fill('no-matching-mission')
+        assert await page.locator('.lm-card').count() == 0
+        await page.locator('#lm-clear').click()
+        assert await page.locator('#lm-year-filter').input_value() == '2027'
         await page.locator('#lm-size').select_option('24')
         await page.screenshot(path=str(shots / 'desktop.png'), full_page=True)
         await page.set_viewport_size({'width': 390, 'height': 844})
@@ -38,6 +54,8 @@ async def check():
         await page.goto(base + '/guide.html?launch=2027-04-02#calendar', wait_until='networkidle')
         assert '2027-04-01' in await page.locator('#date-result').inner_text()
         assert '2027-04-05' in await page.locator('#date-result').inner_text()
+        assert await page.locator('#national-itineraries').count() == 1
+        assert '酒泉' in await page.locator('#national-itineraries').inner_text()
         assert await page.locator('.check input').count() == 25
         assert await page.locator('#budget-per').inner_text() == '¥7,450'
         await page.locator('#b-people').select_option('2')
@@ -54,3 +72,4 @@ async def check():
 
 if __name__ == '__main__':
     asyncio.run(check())
+

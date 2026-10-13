@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "last_attempt_at": "2026-10-13T04:09:00Z",
+  "checked_at": "2026-10-13T04:09:00Z",
+  "content_updated_at": "2026-10-13T04:09:00Z",
+  "check_status": "ok",
+  "scope": "2027中国境内发射与北京出发旅游；海南优先，含酒泉及其他国内场址；本轮核验下列公开线索，不代表全年任务完整清单",
+  "items": [
+    {
+      "id": "csst",
+      "name": "巡天空间望远镜（CSST）",
+      "evidence_level": "官方年度计划",
+      "date_status": "具体发射日期待定",
+      "checked_at": "2026-10-13T04:09:00Z",
+      "access_status": "2027当次公众观礼开放未核实",
+      "note": "中科院2026-05-08材料提到计划2027年发射。该材料没有给出具体日期、火箭、场址或公众观礼安排；年度计划仍可能调整。",
+      "sources": [
+        {
+          "title": "中科院新疆天文台：巡天研究进展",
+          "url": "https://xao.cas.cn/xwdt/xsjl/202605/t20260508_8197681.html",
+          "published_at": "2026-05-08"
+        },
+        {
+          "title": "中科院云南天文台相关进展",
+          "url": "https://ynao.cas.cn/xwzx/kyjz/202603/t20260323_8168661.html",
+          "published_at": "2026-03-23"
+        }
+      ]
+    },
+    {
+      "id": "long-march-10",
+      "name": "长征十号相关试验",
+      "evidence_level": "官方研发目标 / 第三方年度线索",
+      "date_status": "具体发射日期待定",
+      "checked_at": "2026-10-13T04:09:00Z",
+      "access_status": "2027当次公众观礼开放未核实",
+      "note": "2023年材料写“预计在2027年具备首飞条件”，属于研发能力目标，不是已经排定的2027发射窗口。LL2年度条目仍为TBD，场址与开放要另行确认。",
+      "sources": [
+        {
+          "title": "航天科技集团：新一代载人运载火箭进展",
+          "url": "https://www.spacechina.com/n25/n2014789/n2014804/c3847752/content.html",
+          "published_at": "2023"
+        },
+        {
+          "title": "中国载人航天工程：相关进展",
+          "url": "https://www.cmse.gov.cn/xwzx/202303/t20230314_53106.html",
+          "published_at": "2023-03-14"
+        }
+      ]
+    },
+    {
+      "id": "change-7",
+      "name": "嫦娥七号",
+      "evidence_level": "仅第三方2027线索",
+      "date_status": "具体发射日期待定",
+      "checked_at": "2026-10-13T04:09:00Z",
+      "access_status": "2027当次公众观礼开放未核实",
+      "note": "当前LL2将其列为2027年目标、TBD；本轮未核实到支持2027发射的一级来源。12月31日是年度占位，不用于假期重合或订票判断。",
+      "sources": [
+        {
+          "title": "LL2原始任务记录",
+          "url": "https://ll.thespacedevs.com/2.3.0/launches/9d402fb6-9115-424d-b6f0-bd3b13ee310e/",
+          "published_at": null
+        }
+      ]
+    },
+    {
+      "id": "rideshare",
+      "name": "长征火箭公开搭载机会",
+      "evidence_level": "官方跨年度机会范围",
+      "date_status": "具体发射日期待定",
+      "checked_at": "2026-10-13T04:09:00Z",
+      "access_status": "2027当次公众观礼开放未核实",
+      "note": "2026-04-13公告覆盖2026年11月至2027年12月的9次搭载机会。未据此确认9条具体游客发射行程，任务身份、场址和时间需逐项等待披露。",
+      "sources": [
+        {
+          "title": "航天科技集团：搭载机会公告",
+          "url": "https://www.spacechina.com/n25/n2018089/n2018151/c4586521/content.html",
+          "published_at": "2026-04-13"
+        }
+      ]
+    }
+  ],
+  "holidays": {
+    "year": 2027,
+    "status": "unverified",
+    "checked_at": "2026-10-13T04:09:00Z",
+    "note": "截至2026-10-13尚未核实2027年国务院办公厅放假调休通知。暂不把节日日期当作连休，也不计算确定的请假天数；真实日级发射窗口和正式调休都明确后再匹配。",
+    "sources": [
+      {
+        "title": "国务院政策文件库：节假日安排查询",
+        "url": "https://sousuo.www.gov.cn/zcwjk/policyDocumentLibrary?q=%E8%8A%82%E5%81%87%E6%97%A5%E5%AE%89%E6%8E%92%E7%9A%84%E9%80%9A%E7%9F%A5&t=zhengcelibrary",
+        "published_at": null
+      }
+    ]
+  },
+  "viewing": [
+    {
+      "site": "文昌 / 海南商发",
+      "status": "当次开放待核实",
+      "note": "不得将内场观礼、VIP内场票作为未核实保证。观看发射本身与相关服务收费要区分，按当次任务核验观礼地点和公安交通公告。",
+      "sources": [
+        {
+          "title": "文旅部：文昌观礼旅游市场提示",
+          "url": "https://www.mct.gov.cn/whzx/qgwhxxlb/hn_7734/202408/t20240826_954860.htm",
+          "published_at": "2024-08-26"
+        }
+      ]
+    },
+    {
+      "site": "酒泉 / 东风",
+      "status": "2027当次开放待核实",
+      "note": "历史预约组织活动不等于2027散客可自由入场。先核验合法组织、接驳与准确集合地。",
+      "sources": [
+        {
+          "title": "甘肃文旅：历史神舟观礼活动",
+          "url": "https://www.gswbj.gov.cn/a/2026/05/18/28294.html",
+          "published_at": "2026-05-18"
+        }
+      ]
+    },
+    {
+      "site": "海阳相关 / 海上发射",
+      "status": "实际海域与岸上可见性待核实",
+      "note": "发射海域可调整，海阳保障或太原中心执行不代表从对应城市岸上能看见。海事危险区时间不是精确点火时间。",
+      "sources": [
+        {
+          "title": "海阳：海上发射相关介绍",
+          "url": "https://www.haiyang.gov.cn/art/2024/11/13/art_111793_25.html",
+          "published_at": "2024-11-13"
+        },
+        {
+          "title": "海阳：太原中心执行海上发射",
+          "url": "https://www.haiyang.gov.cn/art/2024/1/19/art_50097_2933633.html",
+          "published_at": "2024-01-19"
+        }
+      ]
+    },
+    {
+      "site": "西昌 / 太原",
+      "status": "未核实当前公众发射观礼开放",
+      "note": "不根据场区参观或历史活动推断2027当次可入场。",
+      "sources": []
+    }
+  ]
+}

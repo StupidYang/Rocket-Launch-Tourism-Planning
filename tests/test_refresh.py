@@ -37,10 +37,15 @@ class TestRefresh(unittest.TestCase):
     def test_removed_not_called_success(self):
         change = r.differences([r.normalize(row())], [], 'now')[0]
         self.assertEqual(change['type'], 'removed')
+        self.assertEqual(change['net'], '2027-12-31T00:00:00Z')
+        self.assertEqual(change['precision'], 'Year')
     def test_country_not_inferred_from_commercial(self):
         item = r.normalize(row(pad={}, launch_service_provider={'name': 'Unknown operator', 'type': {'name': 'Commercial'}}))
         self.assertFalse(item['china'])
         self.assertEqual(item['category'], 'unknown')
+    def test_explicit_foreign_site_overrides_chinese_operator(self):
+        item = r.normalize(row(pad={'country': {'alpha_3_code': 'USA'}}))
+        self.assertFalse(item['china'])
     def test_private_provider(self):
         self.assertEqual(r.normalize(row(launch_service_provider={'name': 'Galactic Energy'}))['category'], 'private')
     def test_terminal_launch_filtered(self):
@@ -51,3 +56,4 @@ class TestRefresh(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

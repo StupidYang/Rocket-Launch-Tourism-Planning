@@ -23,3 +23,19 @@ assert.equal(m.sourceLink('javascript:alert(1)'),'#monitor-sources');
 assert.equal(m.sourceLink('https://evil.example/'),'#monitor-sources');
 assert.equal(m.escape('<script>'), '&lt;script&gt;');
 console.log('20 frontend date, precision, timezone, safety and trip assertions passed');
+
+
+assert.equal(m.tourismScope(row('Year',{china:true})),true);
+assert.equal(m.tourismScope(row('Year',{china:false})),false);
+assert.equal(m.tourismScope(row('Year',{china:true,net:'2026-12-31T00:00:00Z'})),false);
+assert.equal(m.tourismScope(row('Minute',{china:true,net:'2026-12-31T18:30:00Z'})),true);
+assert.equal(m.tourismScope(row('Year',{china:true,hainan:false}),'hainan'),false);
+assert.equal(m.relevantChange({id:'a',china:true},[{id:'a',...row('Year',{china:true})}]),true);
+assert.equal(m.relevantChange({china:true,before:{net:'2027-04-02T00:00:00Z'}},[]),true);
+assert.equal(m.relevantChange({china:false,before:{net:'2027-04-02T00:00:00Z'}},[]),false);
+console.log('China-only 2027 tourism scope and change filtering assertions passed');
+
+assert.equal(m.relevantChange({id:'a',china:true,before:{net:'2027-04-02T00:00:00Z'}},[{id:'a',...row('Year',{china:true,net:'2028-12-31T00:00:00Z'})}]),true);
+assert.equal(m.relevantChange({china:true,net:'2027-12-31T00:00:00Z',precision:'Year'},[]),true);
+
+assert.equal(m.tourismScope(row('Year',{china:true,country_code:'USA'})),false);
