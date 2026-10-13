@@ -1,6 +1,130 @@
 {
-  "updated_at": "2026-10-13T14:09:07Z",
+  "updated_at": "2026-10-13T22:43:13Z",
   "items": [
+    {
+      "at": "2026-10-13T22:43:13Z",
+      "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
+      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "type": "changed",
+      "fields": [
+        "status"
+      ],
+      "before": {
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-19T10:30:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-10-13T22:43:13Z",
+      "id": "e2886a96-5ce9-4f45-872f-4e25a00be837",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-16",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-24T05:29:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-13T22:43:13Z",
+      "id": "7bdc412b-c965-4517-a131-f57a01189803",
+      "name": "Ariane 64 Block 2 | Amazon Leo (LE-04)",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-10-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2026-11-30T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-30T00:00:00Z",
+      "precision": "Month",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-10-13T22:43:13Z",
+      "id": "22e117bf-041c-49d5-9d09-7b180036e143",
+      "name": "Ariane 62 | Metop-SG B1",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z"
+      },
+      "after": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Month",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-10-13T22:43:13Z",
+      "id": "0b85fcca-5252-48d7-9ccb-c10b1da9d183",
+      "name": "Ariane 62 | Galileo L15 (FOC FM28 & FM31)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Quarter 4"
+      },
+      "after": {
+        "net": "2027-03-31T00:00:00Z",
+        "precision": "Quarter 1"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-03-31T00:00:00Z",
+      "precision": "Quarter 1",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-10-13T22:43:13Z",
+      "id": "b78857c4-3b8d-4462-929e-bc76f39c0e6d",
+      "name": "Ariane 64 | GO-1",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "after": {
+        "net": "2029-12-31T00:00:00Z",
+        "precision": "Decade"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2029-12-31T00:00:00Z",
+      "precision": "Decade",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
     {
       "at": "2026-10-13T14:09:07Z",
       "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
