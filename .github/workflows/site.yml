@@ -1,25 +1,37 @@
 name: Launch monitor and Pages
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
   push:
     branches: [main]
     paths-ignore: ['data/**', 'README.md']
 permissions:
   contents: write
+  pages: write
+  id-token: write
 concurrency:
   group: rocket-launch-monitor
   cancel-in-progress: false
 jobs:
-  refresh:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    outputs:
+      pages_enabled: ${{ steps.pages.outputs.enabled }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Tests
-        run: python -m unittest discover -s tests -v
+        run: |
+          python -m unittest discover -s tests -v
+          node tests/test_monitor.cjs
+          node --check assets/guide.js
       - name: Refresh full launch snapshot
         env:
           LL2_TOKEN: ${{ secrets.LL2_TOKEN }}
@@ -34,12 +46,71 @@ jobs:
             git commit -m 'data: refresh public launch schedule'
             git push
           fi
-      - name: Acquisition summary
+      - name: Build static site
+        run: python scripts/build.py
+      - name: Browser smoke tests
+        if: github.event_name != 'schedule'
+        run: |
+          python -m pip install 'playwright==1.57.0'
+          python tests/browser_check.py
+      - name: Upload visual test evidence
+        if: always() && github.event_name != 'schedule'
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-test-evidence
+          path: test-results
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Inspect Pages activation
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/pages" > /tmp/pages.json 2>/tmp/pages-error.txt; then
+            if python -c "import json,sys; sys.exit(0 if json.load(open('/tmp/pages.json')).get('build_type') == 'workflow' else 1)"; then
+              echo 'enabled=true' >> "$GITHUB_OUTPUT"
+            else
+              echo 'enabled=false' >> "$GITHUB_OUTPUT"
+              echo '::warning::Set Settings > Pages > Source to GitHub Actions, then run this workflow again.'
+            fi
+          else
+            echo 'enabled=false' >> "$GITHUB_OUTPUT"
+            echo '::warning::Pages is not enabled or its configuration is not readable. Set Settings > Pages > Source to GitHub Actions, then run this workflow again.'
+          fi
+      - name: Configure Pages
+        if: steps.pages.outputs.enabled == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Upload site preview archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: rocket-site-preview
+          path: _site
+          retention-days: 7
+      - name: Publish honest run summary
         if: always()
         run: |
-          if [ -f data/status.json ]; then
-            echo '### Acquisition status' >> "$GITHUB_STEP_SUMMARY"
-            echo '```json' >> "$GITHUB_STEP_SUMMARY"
-            cat data/status.json >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
-          fi
+          echo '## Launch acquisition' >> "$GITHUB_STEP_SUMMARY"
+          for file in data/status.json _site/build-summary.json; do
+            if [ -f "$file" ]; then
+              echo '```json' >> "$GITHUB_STEP_SUMMARY"
+              cat "$file" >> "$GITHUB_STEP_SUMMARY"
+              echo '```' >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+          echo 'Pages configuration: ${{ steps.pages.outputs.enabled }}. Build success does not imply deployment or fresh acquisition.' >> "$GITHUB_STEP_SUMMARY"
+  deploy:
+    if: needs.build.outputs.pages_enabled == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
