@@ -47,3 +47,39 @@ assert.equal(m.tourismScope(row('Year',{china:true,country_code:'',site:'Jiuquan
 
 assert.equal(m.relevantChange({china:true,country_code:'USA',before:{net:'2027-04-02T00:00:00Z'}},[]),false);
 assert.equal(m.relevantChange({china:true,site:'Unknown',before:{net:'2027-04-02T00:00:00Z'}},[]),false);
+
+assert.match(m.trip(row('Minute',{net:'2027-04-01T18:00:00Z'}),now).text,/赶不上/);
+assert.doesNotMatch(m.trip(row('Minute',{net:'2027-04-01T18:00:00Z'}),now).text,/优先/);
+assert.match(m.trip(row('Day'),now).text,/时刻未定/);
+const ex=require('../assets/explorer.js');
+const fs=require('node:fs');
+const ed=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'../data/editorial.json'),'utf8'));
+const snap=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'../data/launches.json'),'utf8'));
+const records=ex.combine(snap,ed);
+assert.equal(records.filter(r=>r.name.includes('嫦娥七号')).length,1);
+assert.ok(records.some(r=>ex.matches(r,{q:'轻舟'})));
+assert.ok(records.some(r=>ex.matches(r,{q:'酒泉'})));
+assert.equal(records.find(r=>r.name.includes('轻舟')).siteKey,'unknown');
+assert.deepEqual(ex.destinations({q:'西昌'}),['xichang']);
+assert.deepEqual(ex.destinations({site:'jiuquan',q:'no-record'}),['jiuquan']);
+assert.equal(ex.combine({items:[row('Year',{id:'foreign',china:true,country_code:'USA'})]},{}).length,0);
+assert.equal(ex.safeUrl('javascript:alert(1)'),'');
+assert.ok(records.findIndex(r=>r.group==='commercial')>records.findLastIndex(r=>r.group==='national'));
+console.log('Unified discovery, deduplication, destination fallback and early-window tests passed');
+
+assert.ok(records.some(r=>r.name.includes('力鸿二号')&&ex.matches(r,{q:'中科宇航'})));
+assert.equal(ex.combine({items:[row('Year',{id:'uncategorized',name:'Unknown ownership',china:true,country_code:'CHN',category:'unknown'})]},{} )[0].group,'other');
+assert.equal(ex.combine({items:[row('Year',{id:'state-linked',name:'State linked',china:true,country_code:'CHN',category:'state-linked'})]},{} )[0].group,'other');
+const guide=require('../assets/guide.js');
+assert.equal(guide.travelWeek('2027-04-05','late').ok,false);
+assert.equal(guide.travelWeek('2027-04-06','late').ok,false);
+assert.equal(guide.travelWeek('2027-04-02','early').ok,false);
+assert.equal(guide.travelWeek('2027-02-29','late').ok,false);
+assert.equal(guide.travelWeek('2027-04-02','late').start,'2027-04-01');
+assert.equal(guide.travelWeek('2027-01-01','late').start,'2026-12-31');
+assert.equal(guide.travelWeek('2027-12-31','late').end,'2028-01-03');
+assert.notEqual(guide.storageKey({site:'hainan',mission:'A',launch:''}),guide.storageKey({site:'hainan',mission:'B',launch:''}));
+assert.notEqual(guide.storageKey({site:'hainan',mission:'A',launch:'2027-04-02'}),guide.storageKey({site:'hainan',mission:'A',launch:'2027-04-03'}));
+assert.equal(guide.safeHomeReturn('https://evil.example/','https://example.com/repo/guide.html'),'https://example.com/repo/');
+assert.equal(guide.safeHomeReturn('/repo/?q=test','https://example.com/repo/guide.html'),'https://example.com/repo/?q=test');
+console.log('Guide chronology, scoped persistence keys and safe return tests passed');

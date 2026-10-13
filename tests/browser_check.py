@@ -1,25 +1,15 @@
-"""Browser smoke tests against the built site. No synthetic launch rows are published."""
+"""Exercise the actual built discovery-to-trip journey. Test fixtures are never published."""
 import asyncio
 import functools
 import http.server
 import json
-import re
 import shutil
 import threading
 from pathlib import Path
-from datetime import datetime, timezone, timedelta
 from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-def tourism_row(r):
-    net = r.get('net')
-    code = r.get('country_code')
-    domestic = code == 'CHN' if code else bool(re.search(r'jiuquan|wenchang|xichang|taiyuan|haiyang|酒泉|文昌|西昌|太原|海阳', r.get('site', ''), re.I))
-    if not net or not r.get('china') or not domestic:
-        return False
-    precise = str(r.get('precision') or '').lower() in ('second', 'minute', 'hour', 'day')
-    year = str(datetime.fromisoformat(net.replace('Z', '+00:00')).astimezone(timezone(timedelta(hours=8))).year) if precise else net[:4]
-    return year == '2027'
+
 async def check():
     out = ROOT / '_site'
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(out))
@@ -31,56 +21,138 @@ async def check():
     async with async_playwright() as p:
         executable = shutil.which('google-chrome') or shutil.which('chromium') or shutil.which('chromium-browser')
         browser = await p.chromium.launch(headless=True, executable_path=executable)
-        page = await browser.new_page(viewport={'width': 1440, 'height': 1000})
+        context = await browser.new_context(viewport={'width': 1440, 'height': 1000})
+        page = await context.new_page()
         errors = []
         page.on('pageerror', lambda e: errors.append(str(e)))
-        data = json.loads((out / 'data/launches.json').read_text())
         await page.goto(base, wait_until='networkidle')
-        assert await page.locator('[data-lm-scope="global"]').count() == 0
-        assert await page.locator('#lm-year-filter').input_value() == '2027'
-        editorial = json.loads((out / 'data/editorial.json').read_text())
-        assert await page.locator('#editorial-items article').count() == len(editorial.get('items', []))
-        assert await page.locator('#commercial-items article').count() == len(editorial.get('watchlist', []))
-        assert await page.locator('#viewing-items article').count() == len(editorial.get('viewing', []))
-        assert '不是全国年度发射总数' in await page.locator('.lm-stats').inner_text()
-        assert await page.locator('#editorial-review').evaluate('(e) => e.getBoundingClientRect().top') < await page.locator('#commercial-watch').evaluate('(e) => e.getBoundingClientRect().top')
-        if any("Chang'e 7" in r.get('name', '') and tourism_row(r) for r in data.get('items', [])):
-            assert '嫦娥七号' in await page.locator('#lm-cards').inner_text()
-        assert await page.locator('#holiday-status').inner_text() == editorial['holidays']['note']
-        await page.locator('#lm-size').select_option('0')
-        assert await page.locator('.lm-card').count() == sum(tourism_row(r) for r in data.get('items', []))
-        await page.locator('[data-lm-scope="hainan"]').click()
-        assert await page.locator('.lm-card').count() == sum(tourism_row(r) and bool(r['hainan']) for r in data.get('items', []))
-        await page.locator('#lm-search').fill('no-matching-mission')
-        assert await page.locator('.lm-card').count() == 0
+        total = await page.locator('.finder-card').count()
+        assert total >= 5, 'Independent candidates must be discoverable beyond the three LL2 rows'
+        assert '不是全国发射总数' in await page.locator('#lm-count').inner_text()
+        await page.locator('#lm-search').fill('轻舟')
+        assert await page.locator('.finder-card').count() == 1
+        await page.locator('[data-open]').click()
+        assert '轻舟' in await page.locator('#detail-heading').inner_text()
+        assert await page.locator('#detail-heading').evaluate('(e)=>e===document.activeElement')
+        assert '未确认实际发射场址' in await page.locator('#detail-content').inner_text()
+        assert 'site=unknown' in await page.locator('[data-trip-link]').get_attribute('href')
+        await page.keyboard.press('Escape')
+        await page.wait_for_function('!new URL(location.href).searchParams.has("mission")')
+        assert not await page.locator('#mission-detail').is_visible()
+        assert await page.locator('[data-open]').evaluate('(e)=>e===document.activeElement')
+        await page.locator('[data-open]').click()
+        deep_link = page.url
+        await page.go_back()
+        assert not await page.locator('#mission-detail').is_visible()
+        assert await page.locator('#lm-search').input_value() == '轻舟'
+        await page.go_forward()
+        assert await page.locator('#mission-detail').is_visible()
+        await page.reload(wait_until='networkidle')
+        assert page.url == deep_link
+        assert await page.locator('#detail-heading').evaluate('(e)=>e===document.activeElement')
+        assert '轻舟' in await page.locator('#detail-heading').inner_text()
+        await page.locator('#detail-close').click()
+        await page.wait_for_function('!new URL(location.href).searchParams.has("mission")')
+        assert not await page.locator('#mission-detail').is_visible()
+        await page.locator('#lm-search').fill('酒泉')
+        assert await page.locator('.finder-card').count() >= 1
+        assert '酒泉' in await page.locator('#destination-result').inner_text()
+        await page.locator('#stage-filter').select_option('dated')
+        assert await page.locator('.finder-card').count() == 0
+        assert await page.locator('#lm-empty').is_visible()
+        assert '预约与北京出发行程' in await page.locator('#destination-result').inner_text()
+        await page.locator('#empty-reset').click()
+        for selector in ['#site-filter','#kind-filter','#stage-filter','#lm-search']:
+            assert await page.locator(selector).input_value() == ''
+        assert await page.locator('.finder-card').count() == total
+        await page.locator('#kind-filter').select_option('commercial')
+        assert await page.locator('.finder-card').count() > 0
+        assert all('商业与应用' in t for t in await page.locator('.finder-card').all_inner_texts())
         await page.locator('#lm-clear').click()
-        assert await page.locator('#lm-year-filter').input_value() == '2027'
-        await page.locator('#lm-size').select_option('24')
-        await page.screenshot(path=str(shots / 'desktop.png'), full_page=True)
-        await page.set_viewport_size({'width': 390, 'height': 844})
+        await page.locator('#lm-search').fill('嫦娥七号')
+        assert await page.locator('.finder-card').count() == 1, 'Official and LL2 records must be deduplicated'
+        await page.locator('[data-open]').click()
+        assert 'NARIT' in await page.locator('#detail-content').inner_text()
+        assert 'site=hainan' in await page.locator('[data-trip-link]').get_attribute('href')
+        assert 'launch=' not in await page.locator('[data-trip-link]').get_attribute('href'), 'Annual placeholder must not become a dated trip'
+        async with page.expect_download() as download_info:
+            await page.locator('#lm-export').click()
+        download = await download_info.value
+        result = json.loads(Path(await download.path()).read_text())
+        assert len(result['items']) == 1 and result['items'][0]['name'] == '嫦娥七号'
+        await page.locator('#lm-clear').click()
+        await page.screenshot(path=str(shots/'finder-desktop.png'), full_page=True)
+        await page.set_viewport_size({'width':390,'height':844})
         assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-        await page.screenshot(path=str(shots / 'mobile.png'), full_page=True)
-        await page.goto(base + '/guide.html?launch=2027-04-02#calendar', wait_until='networkidle')
+        await page.locator('#site-filter').select_option('xichang')
+        assert await page.locator('#destination-result a').count() == 1
+        await page.locator('#destination-result a').click()
+        assert '#trip-planner' in page.url and 'site=xichang' in page.url
+        assert '西昌' in await page.locator('#trip-planner').inner_text()
+        await page.screenshot(path=str(shots/'trip-mobile.png'), full_page=True)
+        assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        assert await page.locator('#trip-site').input_value() == 'xichang'
+        assert not await page.locator('#date-calc').is_enabled()
+        assert not await page.locator('#b-flight').is_enabled()
+        assert not await page.locator('#c0').is_enabled()
+        await page.locator('[data-return-link]').first.click()
+        assert await page.locator('#site-filter').input_value() == 'xichang'
+        # Different mission, destination or window must not inherit confirmed preparation.
+        task_a = base + '/guide.html?site=hainan&mission=Task-A&launch=2027-04-02&period=late#trip-planner'
+        await page.goto(task_a, wait_until='networkidle')
+        assert await page.locator('#launch-period').input_value() == 'late'
         assert '2027-04-01' in await page.locator('#date-result').inner_text()
-        assert '2027-04-05' in await page.locator('#date-result').inner_text()
-        assert '西昌' in await page.locator('#booking-routes').inner_text()
-        assert '售罄' in await page.locator('#booking-routes').inner_text()
-        assert await page.locator('#national-itineraries').count() == 1
-        assert '酒泉' in await page.locator('#national-itineraries').inner_text()
-        assert await page.locator('.check input').count() == 25
-        assert await page.locator('#budget-per').inner_text() == '¥7,450'
-        await page.locator('#b-people').select_option('2')
-        assert await page.locator('#budget-per').inner_text() == '¥6,300'
         await page.locator('#c0').check()
-        await page.reload()
+        await page.reload(wait_until='networkidle')
         assert await page.locator('#c0').is_checked()
-        assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-        await page.screenshot(path=str(shots / 'guide-mobile.png'), full_page=True)
+        await page.goto(base + '/guide.html?site=hainan&mission=Task-A&launch=2027-04-02&period=early#trip-planner', wait_until='networkidle')
+        assert not await page.locator('#c0').is_checked(), 'A changed time window must invalidate confirmations'
+        assert await page.locator('#launch-period').input_value() == 'early'
+        await page.goto(base + '/guide.html?site=hainan&mission=Task-B&launch=2027-04-02#trip-planner', wait_until='networkidle')
+        assert not await page.locator('#c0').is_checked()
+        assert await page.locator('#launch-period').input_value() == 'unknown'
+        await page.locator('#trip-buffer').select_option('2')
+        await page.locator('#trip-returnby').fill('2027-04-05T16:00')
+        await page.locator('#trip-returnby').press('Tab')
+        async with page.expect_download() as plan_info:
+            await page.locator('#export-trip').click()
+        plan_download = await plan_info.value
+        plan_text = Path(await plan_download.path()).read_text()
+        assert 'Task-B' in plan_text and '2027-04-02' in plan_text and '2' in plan_text
+        await page.locator('#c0').check()
+        await page.locator('#launch-date').fill('2027-04-05')
+        await page.locator('#date-calc').click()
+        assert '不生成行程' in await page.locator('#date-result').inner_text()
+        assert '2027-04-08' not in await page.locator('#date-result').inner_text()
+        assert not await page.locator('#c0').is_checked(), 'Changing the date must invalidate old confirmations'
+        await page.locator('#c0').check()
+        await page.reload(wait_until='networkidle')
+        assert not await page.locator('#c0').is_checked(), 'Restoring the original URL date must not reuse checks for the manual date'
+        await page.goto(base + '/guide.html?site=hainan&mission=Early&launch=2027-04-02&period=early#trip-planner', wait_until='networkidle')
+        assert '可能赶不上' in await page.locator('#date-result').inner_text()
+        await page.locator('#trip-site').select_option('jiuquan')
+        assert not await page.locator('#date-calc').is_enabled()
+        assert '酒泉' in await page.locator('#trip-context').inner_text()
+        # Network failure must retain embedded, last-known records and explain the failure.
+        await page.goto(base, wait_until='networkidle')
+        await page.route('**/data/*.json', lambda route: route.abort())
+        before = await page.locator('.finder-card').count()
+        await page.locator('#lm-refresh').click()
+        assert await page.locator('.finder-card').count() == before
+        assert '更新失败' in await page.locator('#lm-health').inner_text()
+        await page.unroute('**/data/*.json')
+        await page.screenshot(path=str(shots/'finder-mobile.png'), full_page=True)
+        # A fresh no-JavaScript reader still has useful, direct guide and booking links.
+        nojs = await browser.new_context(java_script_enabled=False)
+        nojs_page = await nojs.new_page()
+        await nojs_page.goto(base, wait_until='load')
+        assert await nojs_page.locator('noscript a[href="./guide.html#trip-planner"]').is_visible()
+        assert await nojs_page.locator('noscript a[href="./guide.html#booking-routes"]').is_visible()
+        await nojs.close()
         assert not errors, errors
         await browser.close()
     server.shutdown()
-    print('Browser checks passed: all rows reachable; Hainan filter; mobile layout; dates; budget; 25 checks; persistence; no JS errors.')
+    print('Journey checks passed: unified search, deduplication, unknown-site boundary, destination fallback, all-filter reset, task details, focus/Escape, Back/Forward/reload, scoped export, mobile handoff, data failure and no-JS fallback.')
 
 if __name__ == '__main__':
     asyncio.run(check())
-
