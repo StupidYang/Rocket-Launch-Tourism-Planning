@@ -48,7 +48,9 @@ def normalize(row: dict) -> dict:
     status = obj(row.get('status'))
     precision = obj(row.get('net_precision'))
     site = location.get('name') or '场址待定'
-    is_china = country_code == 'CHN' if country_code else any(x.lower() in operator.lower() for x in CHINA_OPERATORS)
+    # A Chinese operator alone does not establish a physical launch location.
+    domestic_sites = ('jiuquan', 'wenchang', 'xichang', 'taiyuan', 'haiyang', '酒泉', '文昌', '西昌', '太原', '海阳')
+    is_china = country_code == 'CHN' if country_code else any(x in site.lower() for x in domestic_sites)
     is_hainan = any(x in (site + ' ' + str(pad.get('name', ''))).lower() for x in ('wenchang', 'hainan', '文昌', '海南'))
     # Ownership and commercial launch service are different dimensions.
     category = 'unknown'
@@ -134,14 +136,14 @@ def differences(old: list, new: list, stamp: str):
     for ident, r in newmap.items():
         before = oldmap.get(ident)
         if before is None:
-            changes.append({'at': stamp, 'id': ident, 'name': r['name'], 'type': 'added', 'fields': [], 'china': r['china'], 'hainan': r['hainan'], 'net': r.get('net'), 'precision': r.get('precision')})
+            changes.append({'at': stamp, 'id': ident, 'name': r['name'], 'type': 'added', 'fields': [], 'china': r['china'], 'hainan': r['hainan'], 'net': r.get('net'), 'precision': r.get('precision'), 'country_code': r.get('country_code'), 'site': r.get('site')})
         else:
             changed = [f for f in fields if before.get(f) != r.get(f)]
             if changed:
-                changes.append({'at': stamp, 'id': ident, 'name': r['name'], 'type': 'changed', 'fields': changed, 'before': {f: before.get(f) for f in changed}, 'after': {f: r.get(f) for f in changed}, 'china': r['china'], 'hainan': r['hainan'], 'net': r.get('net'), 'precision': r.get('precision')})
+                changes.append({'at': stamp, 'id': ident, 'name': r['name'], 'type': 'changed', 'fields': changed, 'before': {f: before.get(f) for f in changed}, 'after': {f: r.get(f) for f in changed}, 'china': r['china'], 'hainan': r['hainan'], 'net': r.get('net'), 'precision': r.get('precision'), 'country_code': r.get('country_code'), 'site': r.get('site')})
     for ident, r in oldmap.items():
         if ident not in newmap:
-            changes.append({'at': stamp, 'id': ident, 'name': r['name'], 'type': 'removed', 'fields': [], 'china': r.get('china', False), 'hainan': r.get('hainan', False), 'net': r.get('net'), 'precision': r.get('precision')})
+            changes.append({'at': stamp, 'id': ident, 'name': r['name'], 'type': 'removed', 'fields': [], 'china': r.get('china', False), 'hainan': r.get('hainan', False), 'net': r.get('net'), 'precision': r.get('precision'), 'country_code': r.get('country_code'), 'site': r.get('site')})
     return changes
 
 def main():

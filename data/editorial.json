@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "last_attempt_at": "2026-10-13T04:09:00Z",
+  "last_attempt_at": "2026-10-13T06:06:00Z",
   "checked_at": "2026-10-13T04:09:00Z",
-  "content_updated_at": "2026-10-13T04:09:00Z",
-  "check_status": "ok",
+  "content_updated_at": "2026-10-13T06:06:00Z",
+  "check_status": "partial",
   "scope": "2027中国境内发射与北京出发旅游；海南优先，含酒泉及其他国内场址；本轮核验下列公开线索，不代表全年任务完整清单",
   "items": [
     {
@@ -51,12 +51,17 @@
     {
       "id": "change-7",
       "name": "嫦娥七号",
-      "evidence_level": "仅第三方2027线索",
-      "date_status": "具体发射日期待定",
-      "checked_at": "2026-10-13T04:09:00Z",
+      "evidence_level": "任务载荷合作方官方确认年度",
+      "date_status": "2027年；具体发射日期待定",
+      "checked_at": "2026-10-13T06:04:00Z",
       "access_status": "2027当次公众观礼开放未核实",
-      "note": "当前LL2将其列为2027年目标、TBD；本轮未核实到支持2027发射的一级来源。12月31日是年度占位，不用于假期重合或订票判断。",
+      "note": "泰国国家天文研究所（NARIT）2026-08-24公告明确嫦娥七号延期至2027年。该机构是随任务飞行的CE-7 MATCH载荷合作方；没有给出2027具体月日。LL2的12月31日仍是年度占位，不用于订票或假期重合判断。",
       "sources": [
+        {
+          "title": "NARIT：嫦娥七号延期至2027年",
+          "url": "https://narit.or.th/en/PressRelease-20260824-CE-7-MATCH",
+          "published_at": "2026-08-24"
+        },
         {
           "title": "LL2原始任务记录",
           "url": "https://ll.thespacedevs.com/2.3.0/launches/9d402fb6-9115-424d-b6f0-bd3b13ee310e/",
@@ -105,19 +110,23 @@
           "url": "https://www.mct.gov.cn/whzx/qgwhxxlb/hn_7734/202408/t20240826_954860.htm",
           "published_at": "2024-08-26"
         }
-      ]
+      ],
+      "checked_at": "2026-10-13T06:06:00Z",
+      "booking_route": "核验当次正规观礼服务、合法公共观礼区域及文昌公安交通通知；观礼、车辆与景区参观分别确认。"
     },
     {
       "site": "酒泉 / 东风",
-      "status": "2027当次开放待核实",
-      "note": "历史预约组织活动不等于2027散客可自由入场。先核验合法组织、接驳与准确集合地。",
+      "status": "有特定任务预约实证；2027场次待核实",
+      "note": "甘肃2026-05-18官方公告明确神舟二十三号开放观礼预约，说明酒泉可以有组织地预约观礼。该公告是历史场次，不能据此认定当前或2027有余位。",
       "sources": [
         {
           "title": "甘肃文旅：历史神舟观礼活动",
           "url": "https://www.gswbj.gov.cn/a/2026/05/18/28294.html",
           "published_at": "2026-05-18"
         }
-      ]
+      ],
+      "checked_at": "2026-10-13T06:06:00Z",
+      "booking_route": "先关注酒泉文旅当次任务公告及其核实的承办渠道；询问任务名称、集合地点、证件审核、接驳和延期退款。"
     },
     {
       "site": "海阳相关 / 海上发射",
@@ -134,13 +143,171 @@
           "url": "https://www.haiyang.gov.cn/art/2024/1/19/art_50097_2933633.html",
           "published_at": "2024-01-19"
         }
+      ],
+      "checked_at": "2026-10-13T06:06:00Z",
+      "booking_route": "先查海阳文旅与当次海事安全通告，实际可见岸线确认后再咨询当地正规服务。"
+    },
+    {
+      "site": "西昌",
+      "status": "有真实发射观礼团产品；所查页面售罄，2027团期待核实",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "中青旅遨游有西昌火箭发射2晚3天观礼团页面，供应商为中青旅耀悦（北京）旅游有限公司。核查页面显示售罄且无可靠当期或2027团期，仅证明存在此类观礼产品。普通景区票不保证看真实发射。",
+      "booking_route": "通过产品页列明的中青旅官方咨询渠道，先问具体任务、2027团期、余位、身份审核及延期退改；核实前不付款。",
+      "sources": [
+        {
+          "title": "中青旅遨游：西昌发射观礼团（已售罄页面）",
+          "url": "https://www.aoyou.com/domesticgroup/g156151i1",
+          "published_at": null
+        }
       ]
     },
     {
-      "site": "西昌 / 太原",
-      "status": "未核实当前公众发射观礼开放",
-      "note": "不根据场区参观或历史活动推断2027当次可入场。",
+      "site": "太原",
+      "status": "未核实当前公众发射观礼预约",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "未核实到可用于当前或2027实际发射观礼的预约产品；不把历史科普参观当成发射日入场。",
+      "booking_route": "等待当次官方开放或可核实的正规组织渠道；不根据发射中心名称自行前往。",
       "sources": []
+    }
+  ],
+  "check_note": "本轮复核嫦娥七号、商业/组网线索和观礼预约入口，补充国家工程监控主题（非已定2027任务）；其他条目保留原核验时间。",
+  "watchlist": [
+    {
+      "id": "qingzhou",
+      "name": "轻舟货运飞船首飞",
+      "kind": "商业航天应用 / 轨道任务",
+      "target_window": "2027年；月日待定",
+      "site": "待任务公告",
+      "access_status": "当次公众观礼未核实",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "研制方2026-09-30确认2027年首飞和对接目标。火箭及发射场待更具体公告；不把早期入围方案拆成多次发射。",
+      "sources": [
+        {
+          "title": "中科院微小卫星创新研究院：转正样评审",
+          "url": "https://microsate.cas.cn/xwzx/kyjz/202609/t20260930_8288686.html",
+          "published_at": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "lihong-2",
+      "name": "力鸿二号医药载荷首飞",
+      "kind": "亚轨道验证；不计入轨发射",
+      "target_window": "计划2027年第一季度；日待定",
+      "site": "待任务公告",
+      "access_status": "当次公众观礼未核实",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "中科宇航明确计划携医药载荷开展亚轨道飞行验证。不是游客太空飞行或已经开放的观礼场次。",
+      "sources": [
+        {
+          "title": "中科宇航：力鸿二号太空制药计划",
+          "url": "https://www.cas-space.com/article/607.html",
+          "published_at": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "id": "lijian-1-orders",
+      "name": "力箭一号商业卫星订单",
+      "kind": "订单范围；不是单次任务",
+      "target_window": "订单排期延伸至2027年下半年",
+      "site": "待任务公告",
+      "access_status": "当次公众观礼未核实",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "公司负责人2026-09-20受访披露订单范围。具体批次、载荷、日期和场址待逐次公告；生产能力和订单不能换算成本站虚构发次。",
+      "sources": [
+        {
+          "title": "人民网：力箭一号发射与订单信息",
+          "url": "https://finance.people.com.cn/n1/2026/0920/c1004-40802112.html",
+          "published_at": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "id": "zhuque-qianfan",
+      "name": "朱雀 / 千帆商业组网",
+      "kind": "商业发射与星座持续观察",
+      "target_window": "2027逐次任务待公告",
+      "site": "待任务公告",
+      "access_status": "当次公众观礼未核实",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "蓝箭2026-09-15材料体现常态化商业发射及朱雀三号复用验证。现有依据不提供2027逐次排期，不能把星座总目标换算为某年发次。",
+      "sources": [
+        {
+          "title": "蓝箭航天：商业发射与千帆相关进展",
+          "url": "https://www.landspace.com/news-detail.html?itemid=77",
+          "published_at": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "threebody",
+      "name": "三体计算星座",
+      "kind": "组网建设目标；不是发射排期",
+      "target_window": "2027建成100星目标",
+      "site": "待任务公告",
+      "access_status": "当次公众观礼未核实",
+      "checked_at": "2026-10-13T06:06:00Z",
+      "note": "省级公开材料报道累计组网目标，不等于2027年发射100颗，也不构成某一次任务。跟踪后续载荷批次、承运火箭和场址。",
+      "sources": [
+        {
+          "title": "浙江省经济信息中心：三体计算星座目标",
+          "url": "https://zjic.zj.gov.cn/ywdh/ggkf/202607/t20260729_24171180.shtml",
+          "published_at": "2026-07-29"
+        }
+      ]
+    }
+  ],
+  "national_watchlist": [
+    {
+      "id": "tianzhou-followup",
+      "name": "天舟后续货运任务",
+      "status": "2027编号与逐次任务待官方年度公告",
+      "note": "国家工程优先跟踪；不沿用上一年发射月份，也不把候选编号当作已定任务。",
+      "site": "文昌候选，须当次公告确认",
+      "sources": [
+        {
+          "title": "中国载人航天工程官方入口",
+          "url": "https://www.cmse.gov.cn/",
+          "published_at": null
+        }
+      ],
+      "checked_at": "2026-10-13T06:07:00Z"
+    },
+    {
+      "id": "shenzhou-followup",
+      "name": "神舟后续载人任务",
+      "status": "2027编号与逐次任务待官方年度公告",
+      "note": "酒泉方向的国家任务观察项。这里是监控主题，不新增一条已确认2027发射记录。",
+      "site": "酒泉候选，须当次公告确认",
+      "sources": [
+        {
+          "title": "中国载人航天工程官方入口",
+          "url": "https://www.cmse.gov.cn/",
+          "published_at": null
+        }
+      ],
+      "checked_at": "2026-10-13T06:07:00Z"
+    },
+    {
+      "id": "state-constellations",
+      "name": "国家卫星互联网后续组网",
+      "status": "2027批次、承运型号与场址待公告",
+      "note": "跟踪长征八号甲、十二号等后续公告；“商业发射场”不等于民营任务。历史发次不复制成2027排期。",
+      "site": "不得由历史任务默认场址",
+      "sources": [
+        {
+          "title": "航天科技集团任务公告入口",
+          "url": "https://www.spacechina.com/",
+          "published_at": null
+        },
+        {
+          "title": "国家航天局公告入口",
+          "url": "https://www.cnsa.gov.cn/",
+          "published_at": null
+        }
+      ],
+      "checked_at": "2026-10-13T06:07:00Z"
     }
   ]
 }

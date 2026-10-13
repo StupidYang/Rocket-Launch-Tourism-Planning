@@ -39,11 +39,12 @@
     return {text:text||'需调整周四至周一模板',date:t.day};
   }
   function escape(s) {return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-  function localized(text) {let s=String(text||'');for(const [a,b]of [['Long March','长征'],['Zhuque','朱雀'],['Tianzhou','天舟'],['Shenzhou','神舟'],['Hyperbola','双曲线'],['Tianlong','天龙'],['Pallas-1','智神星一号'],['Ceres-1','谷神星一号'],['Unknown Payload','载荷未公布']])s=s.replaceAll(a,b);return s;}
+  function localized(text) {let s=String(text||'');for(const [a,b]of [["Chang'e 7",'嫦娥七号'],["Chang’e 7",'嫦娥七号'],['Xuntian Telescope','巡天空间望远镜'],['Demo Flight','演示飞行'],['Long March','长征'],['Zhuque','朱雀'],['Tianzhou','天舟'],['Shenzhou','神舟'],['Hyperbola','双曲线'],['Tianlong','天龙'],['Pallas-1','智神星一号'],['Ceres-1','谷神星一号'],['Unknown Payload','载荷未公布']])s=s.replaceAll(a,b);return s;}
   function sourceLink(url) {try {const u=new URL(url);return u.protocol==='https:'&&u.hostname==='ll.thespacedevs.com'?u.href:'#monitor-sources';}catch{return '#monitor-sources';}}
-  function tourismScope(r, scope='china') {return Boolean(r.china) && (!r.country_code||r.country_code==='CHN') && yearOf(r)==='2027' && (scope!=='hainan'||Boolean(r.hainan));}
-  function relevantChange(c, items) {const current=items.find(r=>r.id===c.id);return Boolean(current&&tourismScope(current)) || tourismScope(c) || Boolean(c.china)&&[c.before?.net,c.after?.net].some(n=>String(n||'').startsWith('2027'));}
-  const api={timing,trip,yearOf,stamp,dateText,escape,sourceLink,tourismScope,relevantChange};
+  function domesticLocation(r) {return r.country_code ? r.country_code==='CHN' : /jiuquan|wenchang|xichang|taiyuan|haiyang|酒泉|文昌|西昌|太原|海阳/i.test(r.site||'');}
+  function tourismScope(r, scope='china') {return Boolean(r.china) && domesticLocation(r) && yearOf(r)==='2027' && (scope!=='hainan'||Boolean(r.hainan));}
+  function relevantChange(c, items) {const current=items.find(r=>r.id===c.id);return Boolean(current&&tourismScope(current)) || tourismScope(c) || Boolean(c.china)&&domesticLocation(c)&&[c.before?.net,c.after?.net].some(n=>String(n||'').startsWith('2027'));}
+  const api={timing,trip,yearOf,stamp,dateText,escape,sourceLink,tourismScope,relevantChange,localized,domesticLocation};
   if(typeof module!=='undefined'&&module.exports) module.exports=api;
   if(typeof document==='undefined') return;
   const $=id=>document.getElementById(id);
@@ -70,10 +71,14 @@
     $('lm-hainan').textContent=domestic.filter(r=>r.hainan).length;
     $('lm-year').textContent=domestic.filter(r=>!timing(r).known||timing(r).expired).length;
   }
+  function evidenceLinks(sources) {return (sources||[]).map(src=>{let href='';try{const u=new URL(src.url);if(u.protocol==='https:')href=u.href;}catch{}return href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(src.title)}${src.published_at?'（'+escape(src.published_at)+'）':''} ↗</a>`:'';}).join(' · ');}
   function renderEditorial() {
     const ok=editorial.check_status==='ok';
-    $('editorial-status').textContent=`最近核验尝试：${stamp(editorial.last_attempt_at)} · 最近成功核验：${stamp(editorial.checked_at)} · ${ok?'本轮核验已记录':'核验未成功或未初始化，保留旧结论'}。结论变更：${stamp(editorial.content_updated_at)}。`;
+    $('editorial-status').textContent=`最近核验尝试：${stamp(editorial.last_attempt_at)} · 最近成功核验：${stamp(editorial.checked_at)} · ${ok?'本轮核验已记录':editorial.check_status==='partial'?'本轮部分复核，其他条目保留原核验时间':'核验未成功或未初始化，保留旧结论'}。结论变更：${stamp(editorial.content_updated_at)}。`;
     $('editorial-items').innerHTML=(editorial.items||[]).map(r=>`<article class="panel"><h3>${escape(r.name)}</h3><p><b>${escape(r.evidence_level)}</b> · ${escape(r.date_status)}</p><p>${escape(r.note)}</p><p>${(r.sources||[]).map(src=>{let href='';try{const u=new URL(src.url);if(u.protocol==='https:')href=u.href;}catch{}return href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(src.title)} ↗</a>`:'';}).join(' · ')}</p></article>`).join('')||'<p>暂无独立核验记录；请保留未知状态。</p>';
+    $('national-items').innerHTML=(editorial.national_watchlist||[]).map(r=>`<article class="panel"><h3>${escape(r.name)}</h3><p><b>${escape(r.status)}</b></p><p>${escape(r.note)}</p><p>${escape(r.site)}</p><p>${evidenceLinks(r.sources)}</p></article>`).join('');
+    $('commercial-items').innerHTML=(editorial.watchlist||[]).map(r=>`<article class="panel"><h3>${escape(r.name)}</h3><p><b>${escape(r.target_window)}</b></p><p class="small">${escape(r.kind)} · 场址：${escape(r.site)}</p><p>${escape(r.note)}</p><p>${evidenceLinks(r.sources)}</p><p class="source-note">核验：${escape(stamp(r.checked_at))} · ${escape(r.access_status)}</p></article>`).join('')||'<p>商业线索尚待核验，不将空表解释为没有商业发射。</p>';
+    $('viewing-items').innerHTML=(editorial.viewing||[]).map(r=>`<article class="panel"><h3>${escape(r.site)}</h3><p><b>${escape(r.status)}</b></p><p>${escape(r.note)}</p><p>${escape(r.booking_route||'当次预约渠道待核实')}</p><p>${evidenceLinks(r.sources)}</p></article>`).join('');
     $('holiday-status').textContent=editorial.holidays?.note||'2027放假调休尚未核实，暂不计算确定的假期重合。';
   }
   function render() {

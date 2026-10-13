@@ -46,6 +46,9 @@ class TestRefresh(unittest.TestCase):
     def test_explicit_foreign_site_overrides_chinese_operator(self):
         item = r.normalize(row(pad={'country': {'alpha_3_code': 'USA'}}))
         self.assertFalse(item['china'])
+    def test_operator_without_location_is_not_domestic(self):
+        item = r.normalize(row(pad={}))
+        self.assertFalse(item['china'])
     def test_private_provider(self):
         self.assertEqual(r.normalize(row(launch_service_provider={'name': 'Galactic Energy'}))['category'], 'private')
     def test_terminal_launch_filtered(self):

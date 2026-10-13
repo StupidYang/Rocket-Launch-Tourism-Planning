@@ -3,6 +3,7 @@ import asyncio
 import functools
 import http.server
 import json
+import re
 import shutil
 import threading
 from pathlib import Path
@@ -12,7 +13,9 @@ from playwright.async_api import async_playwright
 ROOT = Path(__file__).resolve().parents[1]
 def tourism_row(r):
     net = r.get('net')
-    if not net or not r.get('china') or r.get('country_code') not in (None, '', 'CHN'):
+    code = r.get('country_code')
+    domestic = code == 'CHN' if code else bool(re.search(r'jiuquan|wenchang|xichang|taiyuan|haiyang|酒泉|文昌|西昌|太原|海阳', r.get('site', ''), re.I))
+    if not net or not r.get('china') or not domestic:
         return False
     precise = str(r.get('precision') or '').lower() in ('second', 'minute', 'hour', 'day')
     year = str(datetime.fromisoformat(net.replace('Z', '+00:00')).astimezone(timezone(timedelta(hours=8))).year) if precise else net[:4]
@@ -31,12 +34,18 @@ async def check():
         page = await browser.new_page(viewport={'width': 1440, 'height': 1000})
         errors = []
         page.on('pageerror', lambda e: errors.append(str(e)))
-        await page.goto(base, wait_until='networkidle')
         data = json.loads((out / 'data/launches.json').read_text())
+        await page.goto(base, wait_until='networkidle')
         assert await page.locator('[data-lm-scope="global"]').count() == 0
         assert await page.locator('#lm-year-filter').input_value() == '2027'
         editorial = json.loads((out / 'data/editorial.json').read_text())
         assert await page.locator('#editorial-items article').count() == len(editorial.get('items', []))
+        assert await page.locator('#commercial-items article').count() == len(editorial.get('watchlist', []))
+        assert await page.locator('#viewing-items article').count() == len(editorial.get('viewing', []))
+        assert '不是全国年度发射总数' in await page.locator('.lm-stats').inner_text()
+        assert await page.locator('#editorial-review').evaluate('(e) => e.getBoundingClientRect().top') < await page.locator('#commercial-watch').evaluate('(e) => e.getBoundingClientRect().top')
+        if any("Chang'e 7" in r.get('name', '') and tourism_row(r) for r in data.get('items', [])):
+            assert '嫦娥七号' in await page.locator('#lm-cards').inner_text()
         assert await page.locator('#holiday-status').inner_text() == editorial['holidays']['note']
         await page.locator('#lm-size').select_option('0')
         assert await page.locator('.lm-card').count() == sum(tourism_row(r) for r in data.get('items', []))
@@ -54,6 +63,8 @@ async def check():
         await page.goto(base + '/guide.html?launch=2027-04-02#calendar', wait_until='networkidle')
         assert '2027-04-01' in await page.locator('#date-result').inner_text()
         assert '2027-04-05' in await page.locator('#date-result').inner_text()
+        assert '西昌' in await page.locator('#booking-routes').inner_text()
+        assert '售罄' in await page.locator('#booking-routes').inner_text()
         assert await page.locator('#national-itineraries').count() == 1
         assert '酒泉' in await page.locator('#national-itineraries').inner_text()
         assert await page.locator('.check input').count() == 25

@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict');
 const m=require('../assets/monitor.js');
 const now=Date.parse('2026-10-13T00:00:00Z');
-function row(p='Minute',extras={}){return {net:'2027-04-02T08:30:00Z',precision:p,status_id:1,hainan:true,...extras};}
+function row(p='Minute',extras={}){return {net:'2027-04-02T08:30:00Z',precision:p,status_id:1,hainan:true,country_code:'CHN',...extras};}
 assert.equal(m.timing(row(),now).label,'2027-04-02 16:30');
 assert.equal(m.timing(row('Year'),now).label,'待定');
 assert.equal(m.timing(row('Year'),now).detail,'2027年目标');
@@ -31,11 +31,19 @@ assert.equal(m.tourismScope(row('Year',{china:true,net:'2026-12-31T00:00:00Z'}))
 assert.equal(m.tourismScope(row('Minute',{china:true,net:'2026-12-31T18:30:00Z'})),true);
 assert.equal(m.tourismScope(row('Year',{china:true,hainan:false}),'hainan'),false);
 assert.equal(m.relevantChange({id:'a',china:true},[{id:'a',...row('Year',{china:true})}]),true);
-assert.equal(m.relevantChange({china:true,before:{net:'2027-04-02T00:00:00Z'}},[]),true);
+assert.equal(m.relevantChange({china:true,country_code:'CHN',before:{net:'2027-04-02T00:00:00Z'}},[]),true);
 assert.equal(m.relevantChange({china:false,before:{net:'2027-04-02T00:00:00Z'}},[]),false);
 console.log('China-only 2027 tourism scope and change filtering assertions passed');
 
-assert.equal(m.relevantChange({id:'a',china:true,before:{net:'2027-04-02T00:00:00Z'}},[{id:'a',...row('Year',{china:true,net:'2028-12-31T00:00:00Z'})}]),true);
-assert.equal(m.relevantChange({china:true,net:'2027-12-31T00:00:00Z',precision:'Year'},[]),true);
+assert.equal(m.relevantChange({id:'a',china:true,country_code:'CHN',before:{net:'2027-04-02T00:00:00Z'}},[{id:'a',...row('Year',{china:true,net:'2028-12-31T00:00:00Z'})}]),true);
+assert.equal(m.relevantChange({china:true,country_code:'CHN',net:'2027-12-31T00:00:00Z',precision:'Year'},[]),true);
 
 assert.equal(m.tourismScope(row('Year',{china:true,country_code:'USA'})),false);
+
+assert.match(m.localized("Long March 5 | Chang'e 7"), /嫦娥七号/);
+
+assert.equal(m.tourismScope(row('Year',{china:true,country_code:'',site:'Unknown'})),false);
+assert.equal(m.tourismScope(row('Year',{china:true,country_code:'',site:'Jiuquan Satellite Launch Center'})),true);
+
+assert.equal(m.relevantChange({china:true,country_code:'USA',before:{net:'2027-04-02T00:00:00Z'}},[]),false);
+assert.equal(m.relevantChange({china:true,site:'Unknown',before:{net:'2027-04-02T00:00:00Z'}},[]),false);
