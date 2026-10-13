@@ -51,6 +51,9 @@ jobs:
       - name: Browser smoke tests
         if: github.event_name != 'schedule'
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+          fc-cache -f
           python -m pip install 'playwright==1.57.0'
           python tests/browser_check.py
       - name: Upload visual test evidence
