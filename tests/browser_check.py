@@ -138,6 +138,7 @@ async def check():
         await page.route('**/data/*.json', lambda route: route.abort())
         before = await page.locator('.finder-card').count()
         await page.locator('#lm-refresh').click()
+        await page.wait_for_function("document.getElementById('lm-health').textContent.includes('更新失败') && !document.getElementById('lm-refresh').disabled")
         assert await page.locator('.finder-card').count() == before
         assert '更新失败' in await page.locator('#lm-health').inner_text()
         await page.unroute('**/data/*.json')
