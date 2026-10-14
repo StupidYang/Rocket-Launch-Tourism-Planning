@@ -83,3 +83,16 @@ assert.notEqual(guide.storageKey({site:'hainan',mission:'A',launch:'2027-04-02'}
 assert.equal(guide.safeHomeReturn('https://evil.example/','https://example.com/repo/guide.html'),'https://example.com/repo/');
 assert.equal(guide.safeHomeReturn('/repo/?q=test','https://example.com/repo/guide.html'),'https://example.com/repo/?q=test');
 console.log('Guide chronology, scoped persistence keys and safe return tests passed');
+
+// A constellation satellite target is a searchable topic, not a dated domestic launch.
+const lingjing=records.find(r=>r.id==='editorial-lingjing');
+assert.ok(lingjing);
+assert.equal(lingjing.kind,'topic');
+assert.equal(lingjing.stage,'topic');
+assert.equal(lingjing.siteKey,'unknown');
+assert.equal(lingjing.day,null);
+assert.ok(ex.matches(lingjing,{q:'杭州四维'}));
+assert.equal(ex.matches(lingjing,{site:'hainan'}),false);
+assert.match(lingjing.note,/9颗是卫星数量，不代表9次发射/);
+assert.ok(records.find(r=>r.id==='editorial-lijian-1-orders').sources.some(s=>s.url==='https://www.cas-space.com/article/605.html'));
+console.log('Commercial provenance and unknown-site constellation boundaries passed');
