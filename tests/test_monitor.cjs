@@ -96,3 +96,23 @@ assert.equal(ex.matches(lingjing,{site:'hainan'}),false);
 assert.match(lingjing.note,/9颗是卫星数量，不代表9次发射/);
 assert.ok(records.find(r=>r.id==='editorial-lijian-1-orders').sources.some(s=>s.url==='https://www.cas-space.com/article/605.html'));
 console.log('Commercial provenance and unknown-site constellation boundaries passed');
+
+require('./test_near_window.cjs');
+
+const near=ex.combine(snap,ed,{horizon:'60',now:Date.parse('2026-10-14T07:00:00Z')});
+const officialNear=near.find(r=>r.id==='editorial-lijian-2-y2');
+assert.ok(officialNear);assert.equal(officialNear.siteKey,'unknown');assert.equal(officialNear.day,null);assert.equal(officialNear.stage,'overlap');
+assert.equal(ex.matches(officialNear,{site:'jiuquan'}),false);
+assert.equal(ex.combine(snap,ed,{horizon:'60',now:Date.parse('2026-11-01T00:00:00Z')}).some(r=>r.id==='editorial-lijian-2-y2'),false);
+assert.ok(!near.some(r=>r.name.includes('嫦娥七号')));
+
+const nearNow=Date.parse('2026-10-14T07:00:00Z');
+const unknownNear=ex.combine({items:[row('Day',{id:'unknownsite',china:true,country_code:'CHN',site:'Unknown',hainan:false,net:'2026-10-16T00:00:00Z'})]}, {},{horizon:'60',now:nearNow})[0];
+assert.equal(unknownNear.siteKey,'unknown');assert.match(unknownNear.siteStatus,/具体发射场址未知/);
+assert.equal(ex.nearChange({china:true,country_code:'CHN',site:'Jiuquan',net:'2027-03-01T00:00:00Z',precision:'Day',before:{net:'2026-10-18T00:00:00Z'}},[],nearNow),true);
+assert.equal(ex.nearChange({china:true,country_code:'USA',net:'2027-03-01T00:00:00Z',precision:'Day',before:{net:'2026-10-18T00:00:00Z'}},[],nearNow),false);
+
+assert.equal(guide.validDate('2028-01-02'),true);
+assert.equal(guide.tripContext('https://example.com/guide.html?site=hainan&launch=2028-01-02').launch,'2028-01-02');
+
+assert.equal(m.nearWindow({china:true,country_code:'CHN',net:'2026-10-16T00:00:00Z',precision:'Day',status_id:6},nearNow).eligible,false);

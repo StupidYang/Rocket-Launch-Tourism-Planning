@@ -11,7 +11,7 @@
   };
   const SITE_SUMMARIES = {
     hainan: '先按5个日历日 / 4晚估算，含3天海南活动；先确认具体场站与工位、当次开放和可退改交通。',
-    jiuquan: '先按4–5天估算；有历史组织观礼实证，2027场次与余位待核实。住宿由准确集合地点反推。',
+    jiuquan: '先按4–5天估算；有历史组织观礼实证，当次场次与余位待核实。住宿由准确集合地点反推。',
     xichang: '先按3–4天加弹性缓冲规划；真实观礼团产品页面曾显示售罄，先问新团期与当次余位。',
     taiyuan: '公众发射观礼渠道未核实。先确认实际发射地点与合法开放，暂不锁定天数、交通或住宿城市。',
     sea: '先确认实际海域和合法可见岸线，再定天数与路线。海阳保障或太原中心执行都不等于岸上可见。',
@@ -19,13 +19,13 @@
   };
 
   function validDate(value) {
-    if (!/^2027-\d{2}-\d{2}$/.test(value || '')) return false;
+    if (!/^202[678]-\d{2}-\d{2}$/.test(value || '')) return false;
     const date = new Date(value + 'T12:00:00Z');
     return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
   }
 
   function travelWeek(value, period) {
-    if (!validDate(value)) return { ok: false, text: '请填写2027年的有效日期。' };
+    if (!validDate(value)) return { ok: false, text: '请填写2026–2028年范围内的有效日期；输入日期不代表任务仍待发射。' };
     const date = new Date(value + 'T12:00:00Z');
     const day = date.getUTCDay();
     if (![5, 6, 0].includes(day)) {
@@ -47,7 +47,7 @@
       0: '周日窗口，无延期缓冲；夜间发射可能影响转场。'
     }[day];
     if (!['early', 'late'].includes(period)) note += ' 时段未定，尚不能判断到场是否来得及。';
-    if (!start.startsWith('2027') || !end.startsWith('2027')) note += ' 本模板跨年，交通和假期须覆盖相邻年份。';
+    if (start.slice(0, 4) !== value.slice(0, 4) || end.slice(0, 4) !== value.slice(0, 4)) note += ' 本模板跨年，交通和假期须覆盖相邻年份。';
     return { ok: true, start, end, text: '海南参考旅行周：' + start + ' 周四晚出发 → ' + end + ' 周一回京。' + note + ' 仅做日期计算，不验证发射、航班、假期或开放。' };
   }
 
@@ -100,7 +100,7 @@
   function buildTripExport(context, itinerary, sources, calculator, constraints) {
     const title = SITE_NAMES[context.site] || SITE_NAMES.unknown;
     const lines = [
-      '2027北京出发观礼方案',
+      '北京出发观礼方案',
       '地区：' + title,
       '任务：' + (context.mission || '尚未选定具体任务'),
       '窗口：' + (context.launch ? context.launch + '（北京时间，链接带入，仍须核验）' : '没有有效日级窗口，无法确定行程日期'),
@@ -331,7 +331,7 @@
     const lines = [context.mission ? '正在规划：' + context.mission + '。' : '按地区浏览：' + SITE_NAMES[currentSite] + '。'];
     if (context.launch) lines.push('链接带入日期：' + context.launch + '（北京时间；须核验，不代表官宣）。' + (context.period !== 'unknown' ? '时段：' + (context.period === 'early' ? '凌晨 / 上午' : '下午 / 夜间') + '，精确时刻仍须核实。' : '发射时段尚未确认。'));
     else lines.push('未带入有效的日级窗口，暂不能匹配确定假期或订票。');
-    if (context.invalidLaunch) lines.push('链接日期无效或不在2027年，已忽略。');
+    if (context.invalidLaunch) lines.push('链接日期无效或不在支持的2026–2028年范围，已忽略。');
     if (context.mission) lines.push('页面地区来自所选链接，实际发射场仍须由当次任务公告确认。');
     $('trip-context').textContent = lines.join(' ');
     $('trip-context').style.overflowWrap = 'anywhere';
@@ -457,7 +457,7 @@
     const text = buildTripExport(context, article.innerText || article.textContent, sources,
       context.site === 'hainan' ? '当前输入日期：' + ($('launch-date').value || '未填写') + '（未验证排期）。\n' + $('date-result').textContent : '', { buffer: saved.tripBuffer, returnBy: saved.tripReturnBy });
     try {
-      downloadText(text, '2027北京出发-' + context.site + '-观礼方案.txt');
+      downloadText(text, '北京出发-' + context.site + (context.launch ? '-' + context.launch : '') + '-观礼方案.txt');
       $('trip-export-status').textContent = '已生成文字方案，包含任务、地区、窗口状态、核验来源与下一步。文件下载请查看浏览器。';
     } catch {
       $('trip-export-status').textContent = '无法下载文件，请复制上方方案与来源保存。';
@@ -465,7 +465,7 @@
   });
   $('export-checks').addEventListener('click', () => {
     const text = [
-      '2027海南四晚模板准备记录',
+      '海南四晚模板准备记录',
       '导出时间：' + new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
       '任务：' + (currentContext.mission || '未选定任务的通用模板'),
       '场址：' + SITE_NAMES[currentContext.site],
@@ -477,7 +477,7 @@
       ...fields.map(([id, label]) => label + ': ' + $('b-' + id).value),
       $('budget-per').textContent, $('date-result').textContent
     ].join('\n');
-    downloadText(text, '2027海南追箭准备记录.txt');
+    downloadText(text, '海南追箭准备记录' + (currentContext.launch ? '-' + currentContext.launch : '') + '.txt');
   });
   budget();
   progress();

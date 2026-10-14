@@ -143,6 +143,52 @@ async def check():
         assert '更新失败' in await page.locator('#lm-health').inner_text()
         await page.unroute('**/data/*.json')
         await page.screenshot(path=str(shots/'finder-mobile.png'), full_page=True)
+        # Deterministic near-term fixture exercises real UI without publishing invented tasks.
+        near_context = await browser.new_context(viewport={'width':1440,'height':1000})
+        near_page = await near_context.new_page()
+        near_page.on('pageerror', lambda e: errors.append(str(e)))
+        from datetime import datetime, timezone
+        await near_page.clock.install(time=datetime(2026,10,14,7,0,tzinfo=timezone.utc))
+        fixture = json.loads((out/'data/launches.json').read_text())
+        common = {'china':True,'country_code':'CHN','site':'Wenchang Space Launch Site','hainan':True,'category':'state','status_id':1,'source_url':'https://ll.thespacedevs.com/','operator':'Test','rocket':'Test'}
+        fixture['items'] = [dict(common,id='test-near-day',name='近期交互测试',net='2026-10-16T06:00:00Z',precision='Hour'),dict(common,id='test-near-month',name='月份候选测试',net='2026-10-31T00:00:00Z',precision='Month',status_id=2),dict(common,id='test-past',name='已过窗口测试',net='2026-10-13T06:00:00Z',precision='Minute'),dict(common,id='test-year',name='年度占位测试',net='2026-12-31T00:00:00Z',precision='Year')]
+        await near_page.route('**/data/launches.json', lambda route: route.fulfill(json=fixture))
+        await near_page.goto(base+'/?horizon=60',wait_until='networkidle')
+        assert await near_page.locator('[data-horizon="60"]').get_attribute('aria-pressed') == 'true'
+        assert '60个自然日' in await near_page.locator('#horizon-note').inner_text()
+        assert '已过窗口测试' not in await near_page.locator('#lm-cards').inner_text()
+        assert '年度占位测试' not in await near_page.locator('#lm-cards').inner_text()
+        await near_page.locator('#stage-filter').select_option('dated')
+        assert await near_page.locator('.finder-card').count() == 1
+        await near_page.locator('[data-open]').click()
+        href=await near_page.locator('[data-trip-link]').get_attribute('href')
+        assert 'launch=2026-10-16' in href and 'period=late' in href and 'horizon%3D60' in href
+        await near_page.locator('[data-trip-link]').click()
+        assert await near_page.locator('#launch-date').input_value() == '2026-10-16'
+        assert '2026-10-15' in await near_page.locator('#date-result').inner_text()
+        await near_page.locator('[data-return-link]').first.click()
+        assert 'horizon=60' in near_page.url
+        await near_page.locator('#lm-clear').click()
+        assert await near_page.locator('[data-horizon="60"]').get_attribute('aria-pressed') == 'true'
+        await near_page.locator('#stage-filter').select_option('overlap')
+        await near_page.locator('#lm-search').fill('月份候选测试')
+        await near_page.locator('[data-open]').click()
+        assert 'launch=' not in await near_page.locator('[data-trip-link]').get_attribute('href')
+        await near_page.locator('[data-horizon="2027"]').click()
+        assert '2027全年规划' in await near_page.locator('#horizon-note').inner_text()
+        await near_page.go_back()
+        assert await near_page.locator('[data-horizon="60"]').get_attribute('aria-pressed') == 'true'
+        await near_page.locator('#lm-clear').click()
+        await near_page.screenshot(path=str(shots/'near-desktop.png'),full_page=True)
+        await near_page.set_viewport_size({'width':390,'height':844})
+        await near_page.screenshot(path=str(shots/'near-mobile-results.png'),full_page=True)
+        await near_page.locator('#lm-clear').click()
+        await near_page.locator('#site-filter').select_option('xichang')
+        assert await near_page.locator('#lm-empty').is_visible()
+        assert await near_page.locator('#destination-result a').count() == 1
+        assert await near_page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        await near_page.screenshot(path=str(shots/'near-mobile.png'),full_page=True)
+        await near_context.close()
         # A fresh no-JavaScript reader still has useful, direct guide and booking links.
         nojs = await browser.new_context(java_script_enabled=False)
         nojs_page = await nojs.new_page()

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "last_attempt_at": "2026-10-14T00:38:00Z",
+  "last_attempt_at": "2026-10-14T07:04:00Z",
   "checked_at": "2026-10-13T04:09:00Z",
-  "content_updated_at": "2026-10-14T00:38:00Z",
+  "content_updated_at": "2026-10-14T07:04:00Z",
   "check_status": "partial",
   "scope": "2027中国境内发射与北京出发旅游；海南优先，含酒泉及其他国内场址；本轮核验下列公开线索，不代表全年任务完整清单",
   "items": [
@@ -170,7 +170,7 @@
       "sources": []
     }
   ],
-  "check_note": "2026-10-14补核商业项目来源：新增灵境星座首批卫星季度目标，力箭一号订单补充公司原始公告；尚无新增日级窗口、实际场址或2027观礼余位。其他条目保留各自最近成功核验时间；不将本轮部分核验标作全量成功。",
+  "check_note": "新增未来60天官方月度观察：力箭二号遥二，场址尚未确认。近期LL2线索单独显示，非完整任务清单；其他年度与预约条目保留各自核验时间。",
   "watchlist": [
     {
       "id": "qingzhou",
@@ -332,6 +332,27 @@
         }
       ],
       "checked_at": "2026-10-13T06:07:00Z"
+    }
+  ],
+  "near_term": [
+    {
+      "id": "lijian-2-y2",
+      "name": "力箭二号遥二",
+      "aliases": "中科宇航 CAS Space",
+      "group": "commercial",
+      "planned_month": "2026-10",
+      "target_window": "拟2026年10月发射；具体日期待定",
+      "evidence_level": "公司官方月度计划",
+      "access_status": "当次观礼未核实",
+      "checked_at": "2026-10-14T07:04:00Z",
+      "note": "中科宇航2026-08-26出厂公告提出当年10月发射目标，没有给出具体日期和实际发射场址。月度范围与未来60天重叠，不保证在剩余窗口内发射；不要据此订不可退票或推断酒泉。",
+      "sources": [
+        {
+          "title": "中科宇航：力箭二号遥二顺利出厂",
+          "url": "https://www.cas-space.com/article/601.html",
+          "published_at": "2026-08-26"
+        }
+      ]
     }
   ]
 }

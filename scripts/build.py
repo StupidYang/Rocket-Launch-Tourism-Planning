@@ -34,7 +34,7 @@ def build():
     (OUT / 'index.html').write_text(html.replace('__LAUNCH_SEED__', seed), encoding='utf-8')
     (OUT / '.nojekyll').touch()
     items = launches.get('items', [])
-    summary = {'built_at': datetime.now(timezone.utc).isoformat(), 'last_acquisition': launches.get('fetched_at'), 'acquisition_state': status.get('state'), 'source_count': launches.get('source_count', 0), 'cached_count': len(items), 'display_scope': '2027 China only', 'china_count': sum(bool(r.get('china')) for r in items), 'hainan_count': sum(bool(r.get('hainan')) for r in items), 'hainan_2027_target_count': sum(bool(r.get('hainan')) and str(r.get('net') or '').startswith('2027') for r in items), 'guide': 'guide.html', 'entry': 'index.html'}
+    summary = {'built_at': datetime.now(timezone.utc).isoformat(), 'last_acquisition': launches.get('fetched_at'), 'acquisition_state': status.get('state'), 'source_count': launches.get('source_count', 0), 'cached_count': len(items), 'display_scope': 'China only: rolling 60 days and 2027 planning', 'china_count': sum(bool(r.get('china')) for r in items), 'hainan_count': sum(bool(r.get('hainan')) for r in items), 'hainan_2027_target_count': sum(bool(r.get('hainan')) and str(r.get('net') or '').startswith('2027') for r in items), 'guide': 'guide.html', 'entry': 'index.html'}
     (OUT / 'build-summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return summary
