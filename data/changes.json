@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-14T07:29:06Z",
+  "updated_at": "2026-10-14T11:49:33Z",
   "items": [
+    {
+      "at": "2026-10-14T11:49:33Z",
+      "id": "dfcabb3c-078b-4f5b-a47c-0161f248cee9",
+      "name": "Zhuque-2E | Unknown Payload",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-10-14T11:40:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-10-13T22:43:13Z",
       "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
