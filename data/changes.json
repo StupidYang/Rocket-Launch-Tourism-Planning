@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-10-14T11:49:33Z",
+  "updated_at": "2026-10-14T17:08:41Z",
   "items": [
+    {
+      "at": "2026-10-14T17:08:41Z",
+      "id": "7bdc412b-c965-4517-a131-f57a01189803",
+      "name": "Ariane 64 Block 2 | Amazon Leo (LE-04)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "after": {
+        "net": "2026-11-23T00:00:00Z",
+        "precision": "Day"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-23T00:00:00Z",
+      "precision": "Day",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
     {
       "at": "2026-10-14T11:49:33Z",
       "id": "dfcabb3c-078b-4f5b-a47c-0161f248cee9",
