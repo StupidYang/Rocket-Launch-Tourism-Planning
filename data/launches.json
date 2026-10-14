@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-10-14T04:50:48Z",
+  "fetched_at": "2026-10-14T07:13:56Z",
   "source_count": 472,
   "fetched_count": 472,
   "pages": 5,
@@ -58,7 +58,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-10-08T15:48:47Z",
+      "source_updated_at": "2026-10-14T05:48:36Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/df88cfbf-f504-4e11-8370-e33dd6280b5b/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-ussf-481"
