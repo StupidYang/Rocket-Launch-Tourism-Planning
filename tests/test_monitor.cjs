@@ -99,11 +99,13 @@ console.log('Commercial provenance and unknown-site constellation boundaries pas
 
 require('./test_near_window.cjs');
 
-const near=ex.combine(snap,ed,{horizon:'60',now:Date.parse('2026-10-14T07:00:00Z')});
+const nearEd={near_term:[{id:'lijian-2-y2',name:'Test official monthly lead',planned_month:'2026-10',assessment:'Fixture analysis',confidence:'中',missing_confirmations:['window'],review_by:'2026-10-15T04:00:00Z'},{id:'shenzhou-24-assessment',ll2_id:'c9605b67-8a53-4239-a8ae-577fe3b79799',name:'Test inference',assessment_month:'2026-11',site_key:'jiuquan',assessment:'Fixture analysis',confidence:'中低',missing_confirmations:['window'],review_by:'2026-10-15T04:00:00Z'}]};
+const nearSnap={items:[row('Year Half 2',{id:'c9605b67-8a53-4239-a8ae-577fe3b79799',china:true,country_code:'CHN',site:'Jiuquan',hainan:false,net:'2026-12-31T00:00:00Z'})]};
+const near=ex.combine(nearSnap,nearEd,{horizon:'60',now:Date.parse('2026-10-14T07:00:00Z')});
 const officialNear=near.find(r=>r.id==='editorial-lijian-2-y2');
-assert.ok(officialNear);assert.equal(officialNear.siteKey,'unknown');assert.equal(officialNear.day,null);assert.equal(officialNear.stage,'overlap');
+assert.ok(officialNear);assert.equal(officialNear.siteKey,'unknown');assert.equal(officialNear.day,null);assert.equal(officialNear.stage,'inference');
 assert.equal(ex.matches(officialNear,{site:'jiuquan'}),false);
-assert.equal(ex.combine(snap,ed,{horizon:'60',now:Date.parse('2026-11-01T00:00:00Z')}).some(r=>r.id==='editorial-lijian-2-y2'),false);
+assert.equal(ex.combine(nearSnap,nearEd,{horizon:'60',now:Date.parse('2026-11-01T00:00:00Z')}).some(r=>r.id==='editorial-lijian-2-y2'),false);
 assert.ok(!near.some(r=>r.name.includes('嫦娥七号')));
 
 const nearNow=Date.parse('2026-10-14T07:00:00Z');
@@ -116,3 +118,28 @@ assert.equal(guide.validDate('2028-01-02'),true);
 assert.equal(guide.tripContext('https://example.com/guide.html?site=hainan&launch=2028-01-02').launch,'2028-01-02');
 
 assert.equal(m.nearWindow({china:true,country_code:'CHN',net:'2026-10-16T00:00:00Z',precision:'Day',status_id:6},nearNow).eligible,false);
+
+const inferred=near.find(r=>r.id==='editorial-shenzhou-24-assessment');
+assert.ok(inferred);assert.equal(inferred.stage,'inference');assert.equal(inferred.day,null);
+assert.equal(near.filter(r=>r.id==='ll2-c9605b67-8a53-4239-a8ae-577fe3b79799').length,0);
+assert.ok(inferred.confidence.includes('中低'));assert.ok(inferred.missing.length);assert.ok(inferred.reviewBy);
+const expired=ex.combine(nearSnap,nearEd,{horizon:'60',now:Date.parse('2026-10-16T07:00:00Z')});
+assert.equal(expired.some(r=>r.stage==='inference'),false);
+const completedSnap={items:nearSnap.items.map(r=>r.id==='c9605b67-8a53-4239-a8ae-577fe3b79799'?{...r,status_id:3}:r)};
+assert.equal(ex.combine(completedSnap,nearEd,{horizon:'60',now:nearNow}).some(r=>r.id==='editorial-shenzhou-24-assessment'),false);
+
+for(const update of [{precision:'Day',net:'2026-11-03T00:00:00Z',status_id:1},{status_id:5},{precision:'Month',net:'2027-01-31T00:00:00Z'}]){
+ const changed={items:nearSnap.items.map(r=>({...r,...update}))};
+ const result=ex.combine(changed,nearEd,{horizon:'60',now:nearNow});
+ assert.equal(result.some(r=>r.id==='editorial-shenzhou-24-assessment'),false);
+ if(update.precision==='Day')assert.equal(result.find(r=>r.id.startsWith('ll2-')).day,'2026-11-03');
+}
+
+assert.equal(ex.combine({items:nearSnap.items.map(r=>({...r,site:'Wenchang',hainan:true}))},nearEd,{horizon:'60',now:nearNow}).some(r=>r.id==='editorial-shenzhou-24-assessment'),false);
+
+assert.equal(expired.find(r=>r.id==='editorial-lijian-2-y2').stage,'overlap');
+
+for(const precision of ['Year','Quarter 4','Unknown']){
+ const broader={items:nearSnap.items.map(r=>({...r,precision}))};
+ assert.equal(ex.combine(broader,nearEd,{horizon:'60',now:nearNow}).some(r=>r.id==='editorial-shenzhou-24-assessment'),true);
+}
