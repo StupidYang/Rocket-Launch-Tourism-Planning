@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "last_attempt_at": "2026-10-14T07:18:00Z",
+  "last_attempt_at": "2026-10-15T00:55:00Z",
   "checked_at": "2026-10-13T04:09:00Z",
-  "content_updated_at": "2026-10-14T07:18:00Z",
+  "content_updated_at": "2026-10-15T00:55:00Z",
   "check_status": "partial",
-  "scope": "2027中国境内发射与北京出发旅游；海南优先，含酒泉及其他国内场址；本轮核验下列公开线索，不代表全年任务完整清单",
+  "scope": "未来60天与2027中国境内发射及北京出发旅游；海南优先，含酒泉及其他国内场址；公开线索不代表全国完整任务清单",
   "items": [
     {
       "id": "csst",
@@ -109,10 +109,21 @@
           "title": "文旅部：文昌观礼旅游市场提示",
           "url": "https://www.mct.gov.cn/whzx/qgwhxxlb/hn_7734/202408/t20240826_954860.htm",
           "published_at": "2024-08-26"
+        },
+        {
+          "title": "本地宝10月8日商业预告（暂定，非官方窗口）",
+          "url": "https://m.haikou.bendibao.com/news/85394.shtm?src=amap",
+          "published_at": "2026-10-08"
+        },
+        {
+          "title": "去哪儿商品线索（仅检索摘要可读，卖方与余位未核）",
+          "url": "https://piao.qunar.com/daytrip/detail_4206840.html?productId=1724348206",
+          "published_at": null
         }
       ],
       "checked_at": "2026-10-13T06:06:00Z",
-      "booking_route": "核验当次正规观礼服务、合法公共观礼区域及文昌公安交通通知；观礼、车辆与景区参观分别确认。"
+      "booking_route": "核验当次正规观礼服务、合法公共观礼区域及文昌公安交通通知；观礼、车辆与景区参观分别确认。 2026-10-15查到10月下旬（商业页面称10月22日左右）招募线索，低置信：本地宝10月8日称暂定长征八号甲，去哪儿商品索引称长征八号，载荷与任务身份未核实，两源可能同源。商品正文未能读取，卖方资质、当期余位和退改条款未核实；仅供咨询核对，不是已确认发射或当前可订，不可据此付款或购买不可退机票。",
+      "lead_checked_at": "2026-10-15T00:55:00Z"
     },
     {
       "site": "酒泉 / 东风",
@@ -170,7 +181,7 @@
       "sources": []
     }
   ],
-  "check_note": "补充近期线索研判及历史预预约机制：力箭二号月度目标、神舟二十四号背景分析；均标明依据、缺口、可信程度和复核期限，不构成已公布精确窗口或已核实余位。其他条目保留各自核验时间。",
+  "check_note": "本轮补核朱雀二号改进型遥四官方成功结果，以及文昌10月下旬商业预告的冲突与待核条件；其他条目保留各自核验时间。未发现足以延长神舟二十四号、力箭二号原研判期限的新依据，到期自动退级不代表原计划取消。",
   "watchlist": [
     {
       "id": "qingzhou",
@@ -402,6 +413,30 @@
           "title": "LL2神舟二十四号：2026下半年第三方目标",
           "url": "https://ll.thespacedevs.com/2.3.0/launches/c9605b67-8a53-4239-a8ae-577fe3b79799/",
           "published_at": null
+        }
+      ]
+    }
+  ],
+  "recent_outcomes": [
+    {
+      "id": "zq-2e-y4-20261014",
+      "ll2_id": "dfcabb3c-078b-4f5b-a47c-0161f248cee9",
+      "name": "朱雀二号改进型遥四（ZQ-2E Y4）",
+      "confirmed": true,
+      "country_code": "CHN",
+      "occurred_at": "2026-10-14T11:40:00Z",
+      "checked_at": "2026-10-15T00:55:00Z",
+      "result_text": "蓝箭航天确认在东风商业航天创新试验区发射成功，将10颗卫星送入预定轨道",
+      "sources": [
+        {
+          "title": "蓝箭航天：遥四一箭十星成功",
+          "url": "https://www.landspace.com/news-detail.html?itemid=78",
+          "published_at": "2026-10-14"
+        },
+        {
+          "title": "新华社：朱雀二号遥四发射成功",
+          "url": "https://www.news.cn/tech/20261014/d346559fb7fb40d6ab5db3820d4f1941/c.html",
+          "published_at": "2026-10-14"
         }
       ]
     }

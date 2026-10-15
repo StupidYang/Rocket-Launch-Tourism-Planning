@@ -11,6 +11,7 @@
 ## 持久文件与覆盖边界
 
 - `data/editorial.json`：独立官方/第三方核验、来源、假期状态。每日维护的主文件；6小时采集器不写它。保持schema_version、items、holidays和时间字段结构。
+- `data/editorial.json.recent_outcomes`：经官方核实的历史结果，保存任务与LL2关联ID、实际时间、场址国家、结果、来源及核验时间。仅在近期变更中显示最近30天结果，不进入未来任务卡或计数；接口移出本身不等于成功。
 - `guide.html`：候选线索、全国场址核验、北京出发的分地区旅行方案、海南详细模板、预算与注意事项。
 - `index.html` / `assets/monitor.js` / `assets/site.css`：页面、筛选与布局。只作有价值的改进，不为每天提交而改样式。
 - `data/launches.json`、`data/status.json`、`data/changes.json`：LL2采集器拥有的文件，不手工把官方年度候选塞入它们；下次自动刷新会覆盖。

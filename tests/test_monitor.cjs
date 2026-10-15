@@ -143,3 +143,8 @@ for(const precision of ['Year','Quarter 4','Unknown']){
  const broader={items:nearSnap.items.map(r=>({...r,precision}))};
  assert.equal(ex.combine(broader,nearEd,{horizon:'60',now:nearNow}).some(r=>r.id==='editorial-shenzhou-24-assessment'),true);
 }
+
+const outcome={id:'done',ll2_id:'done',name:'Completed launch fixture',confirmed:true,country_code:'CHN',occurred_at:'2026-10-13T11:40:00Z',result_text:'official success',sources:[{url:'https://example.com/official'}]};
+assert.equal(ex.recentOutcomes({recent_outcomes:[outcome]},nearNow).length,1);
+for(const patch of [{confirmed:false},{country_code:'USA'},{occurred_at:'2026-10-15T00:00:00Z'},{occurred_at:'2026-09-01T00:00:00Z'},{sources:[{url:'javascript:alert(1)'}]}])assert.equal(ex.recentOutcomes({recent_outcomes:[{...outcome,...patch}]},nearNow).length,0);
+assert.equal(ex.combine({items:[]},{recent_outcomes:[outcome]},{horizon:'60',now:nearNow}).length,0);
