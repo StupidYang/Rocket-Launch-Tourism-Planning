@@ -160,7 +160,7 @@ async def check():
         await near_page.goto(base+'/?horizon=60',wait_until='networkidle')
         assert await near_page.locator('[data-horizon="60"]').get_attribute('aria-pressed') == 'true'
         assert '60个自然日' in await near_page.locator('#horizon-note').inner_text()
-        assert '历史完成交互测试' in await near_page.locator('#lm-changes').inner_text()
+        assert '历史完成交互测试' in await near_page.locator('#lm-changes').inner_text(), {'changes':await near_page.locator('#lm-changes').inner_text(),'feedback':await near_page.locator('#lm-feedback').inner_text(),'errors':errors,'clock':await near_page.evaluate('new Date().toISOString()')}
         assert '历史完成交互测试' not in await near_page.locator('#lm-cards').inner_text()
         assert '历史，不计未来任务' in await near_page.locator('#lm-changes').inner_text()
         assert '已过窗口测试' not in await near_page.locator('#lm-cards').inner_text()
