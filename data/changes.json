@@ -1,6 +1,93 @@
 {
-  "updated_at": "2026-10-15T16:59:13Z",
+  "updated_at": "2026-10-15T21:21:43Z",
   "items": [
+    {
+      "at": "2026-10-15T21:21:43Z",
+      "id": "df88cfbf-f504-4e11-8370-e33dd6280b5b",
+      "name": "Falcon 9 Block 5 | USSF-481",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-10-15T23:57:05Z"
+      },
+      "after": {
+        "net": "2026-10-16T00:01:05Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-16T00:01:05Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-15T21:21:43Z",
+      "id": "c6f8b6b0-6bae-460a-99bb-c12a3d29effd",
+      "name": "Ceres-1S | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-10-21T03:35:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Haiyang Oriental Spaceport"
+    },
+    {
+      "at": "2026-10-15T21:21:43Z",
+      "id": "7766f3bb-674c-4c71-b986-963bd633fcfe",
+      "name": "Electron | We're Not Hawking Around (3x HawkEye 360)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-10-21T00:00:00Z",
+        "precision": "Day",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "net": "2026-10-21T05:00:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-21T05:00:00Z",
+      "precision": "Hour",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
+    {
+      "at": "2026-10-15T21:21:43Z",
+      "id": "6b95bcc8-1f88-4539-84fe-f63630138766",
+      "name": "Long March 8A | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": true,
+      "net": "2026-10-22T02:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
+    {
+      "at": "2026-10-15T21:21:43Z",
+      "id": "3621085f-deae-4f89-bd54-c0f96ee44421",
+      "name": "Long March 4B | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-10-23T18:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-10-15T16:59:13Z",
       "id": "11b218b1-5e40-4b9d-854e-50320299239d",
