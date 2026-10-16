@@ -1,6 +1,69 @@
 {
-  "updated_at": "2026-10-15T21:21:43Z",
+  "updated_at": "2026-10-16T04:29:38Z",
   "items": [
+    {
+      "at": "2026-10-16T04:29:38Z",
+      "id": "d18f2e53-7085-442a-bdc4-31c8a27d905e",
+      "name": "Falcon 9 Block 5 | COMSATBw 3 Sparrow",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-10-16T04:29:38Z",
+      "id": "c019749b-6db8-406b-9704-098a246318dd",
+      "name": "Falcon Heavy | Gateway PPE & HALO",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "after": {
+        "net": "2029-12-31T00:00:00Z",
+        "precision": "Decade"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2029-12-31T00:00:00Z",
+      "precision": "Decade",
+      "country_code": "USA",
+      "site": "Kennedy Space Center, FL, USA"
+    },
+    {
+      "at": "2026-10-16T04:29:38Z",
+      "id": "df88cfbf-f504-4e11-8370-e33dd6280b5b",
+      "name": "Falcon 9 Block 5 | USSF-481",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-16T00:01:05Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-16T04:29:38Z",
+      "id": "f494692f-471c-4a75-b78e-667842fea27f",
+      "name": "Vulcan | USSF-25",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-10-15T21:21:43Z",
       "id": "df88cfbf-f504-4e11-8370-e33dd6280b5b",
