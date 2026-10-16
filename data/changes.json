@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-10-16T11:21:12Z",
+  "updated_at": "2026-10-16T16:37:16Z",
   "items": [
+    {
+      "at": "2026-10-16T16:37:16Z",
+      "id": "6b95bcc8-1f88-4539-84fe-f63630138766",
+      "name": "Long March 8A | Unknown Payload",
+      "type": "changed",
+      "fields": [
+        "net",
+        "status"
+      ],
+      "before": {
+        "net": "2026-10-22T02:00:00Z",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-10-22T02:57:00Z",
+        "status": "Go for Launch"
+      },
+      "china": true,
+      "hainan": true,
+      "net": "2026-10-22T02:57:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
     {
       "at": "2026-10-16T04:29:38Z",
       "id": "d18f2e53-7085-442a-bdc4-31c8a27d905e",
