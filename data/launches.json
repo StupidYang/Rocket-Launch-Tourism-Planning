@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-10-17T00:15:17Z",
+  "fetched_at": "2026-10-17T04:23:09Z",
   "source_count": 475,
   "fetched_count": 475,
   "pages": 5,
@@ -31,7 +31,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-10-16T12:08:39Z",
+      "source_updated_at": "2026-10-17T04:23:02Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-bandwagon-5-dedicated-mid-inclina"
