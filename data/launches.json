@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-10-17T04:23:09Z",
+  "fetched_at": "2026-10-17T10:41:22Z",
   "source_count": 475,
   "fetched_count": 475,
   "pages": 5,
@@ -571,7 +571,7 @@
       "status_id": 2,
       "status": "To Be Determined",
       "status_abbrev": "TBD",
-      "source_updated_at": "2026-02-24T17:08:45Z",
+      "source_updated_at": "2026-10-17T08:28:07Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/71df1dd0-d658-4762-b0bc-0fca6886aea7/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-sda-tranche-2-transport-layer-d"
@@ -598,7 +598,7 @@
       "status_id": 2,
       "status": "To Be Determined",
       "status_abbrev": "TBD",
-      "source_updated_at": "2025-04-10T05:42:02Z",
+      "source_updated_at": "2026-10-17T08:28:47Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/71ed4649-8d71-42e8-8548-d42ffa2c5a6e/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-sda-tranche-2-transport-layer-e"
