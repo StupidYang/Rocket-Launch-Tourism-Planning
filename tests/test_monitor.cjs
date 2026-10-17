@@ -148,3 +148,13 @@ const outcome={id:'done',ll2_id:'done',name:'Completed launch fixture',confirmed
 assert.equal(ex.recentOutcomes({recent_outcomes:[outcome]},nearNow).length,1);
 for(const patch of [{confirmed:false},{country_code:'USA'},{occurred_at:'2026-10-15T00:00:00Z'},{occurred_at:'2026-09-01T00:00:00Z'},{sources:[{url:'javascript:alert(1)'}]}])assert.equal(ex.recentOutcomes({recent_outcomes:[{...outcome,...patch}]},nearNow).length,0);
 assert.equal(ex.combine({items:[]},{recent_outcomes:[outcome]},{horizon:'60',now:nearNow}).length,0);
+
+const rizhaoFeed={items:[{id:'rizhao-test',name:'Ceres-1S | Unknown Payload',china:true,country_code:'CHN',site:'Haiyang Oriental Spaceport',pad:'Rizhao offshore launch location',net:'2026-10-21T03:35:00Z',precision:'Hour',status_id:1,category:'private',source_url:'https://example.com/feed'}]};
+const rizhaoNote={near_annotations:[{ll2_id:'rizhao-test',name:'谷神星海遥八·日照',site_key:'sea',pad_contains:'Rizhao',site_name:'日照近海',valid_from:'2026-10-21',valid_through:'2026-10-23',review_by:'2026-10-20T04:00:00Z',checked_at:'2026-10-17T00:00:00Z',note:'报道21–23日择机；09:30–13:30是交通管制时间',booking_note:'当日入场待核实',sources:[{title:'交警通告转载',url:'https://example.com/police'}]}]};
+const rizhaoNow=Date.parse('2026-10-17T01:00:00Z');
+const rr=ex.combine(rizhaoFeed,rizhaoNote,{horizon:'60',now:rizhaoNow});
+assert.equal(rr.length,1);assert.equal(rr[0].siteName,'日照近海');assert.equal(rr[0].day,'2026-10-21');assert(!rr[0].date.includes('11:30'));assert.equal(rr[0].sources.length,2);assert.equal(ex.matches(rr[0],{q:'日照'}),true);
+for(const patch of [{net:'2026-10-24T03:35:00Z'},{status_id:5},{pad:'Yangjiang offshore launch location'},{site:'Jiuquan'}])assert.equal(ex.combine({items:[{...rizhaoFeed.items[0],...patch}]},rizhaoNote,{horizon:'60',now:rizhaoNow})[0]?.siteName,undefined);
+assert.equal(ex.combine(rizhaoFeed,rizhaoNote,{horizon:'60',now:Date.parse('2026-10-20T04:00:00Z')})[0].siteName,undefined);
+assert.equal(ex.combine({items:[]},rizhaoNote,{horizon:'60',now:rizhaoNow}).length,0);
+console.log('Rizhao annotation deduplication, precision, expiry and source-conflict boundaries passed');

@@ -6,7 +6,7 @@
     jiuquan: '酒泉 / 东风',
     xichang: '西昌',
     taiyuan: '太原相关发射',
-    sea: '海上发射 / 海阳相关',
+    sea: '海上发射 / 按实际海域选目的地',
     unknown: '场址尚未确认'
   };
   const SITE_SUMMARIES = {
@@ -105,7 +105,7 @@
       '任务：' + (context.mission || '尚未选定具体任务'),
       '窗口：' + (context.launch ? context.launch + '（北京时间，链接带入，仍须核验）' : '没有有效日级窗口，无法确定行程日期'),
       '发射时段：' + (context.period === 'early' ? '凌晨 / 上午（精确时刻待核实）' : context.period === 'late' ? '下午 / 夜间（精确时刻待核实）' : '尚未确认'),
-      '预约证据基准：2026-10-13；不实时查询余位。',
+      '预约渠道证据基准：2026-10-13；日照任务增补：2026-10-17（来源发布于10月16日）；不实时查询余位。',
       '此方案不是机票、酒店、观礼预约或发射保证。',
       constraintText(constraints && constraints.buffer, constraints && constraints.returnBy), '',
       itinerary.trim(), '',

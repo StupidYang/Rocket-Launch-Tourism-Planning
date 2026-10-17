@@ -154,6 +154,7 @@ async def check():
         fixture['items'] = [dict(common,id='test-near-day',name='近期交互测试',net='2026-10-16T06:00:00Z',precision='Hour'),dict(common,id='test-near-month',name='月份候选测试',net='2026-10-31T00:00:00Z',precision='Month',status_id=2),dict(common,id='test-past',name='已过窗口测试',net='2026-10-13T06:00:00Z',precision='Minute'),dict(common,id='test-year',name='年度占位测试',net='2026-12-31T00:00:00Z',precision='Year')]
         editorial_fixture=json.loads((out/'data/editorial.json').read_text())
         editorial_fixture['near_term']=[{'id':'test-assessment','name':'神舟二十四研判交互测试','assessment_month':'2026-11','site_key':'jiuquan','group':'national','target_window':'测试预计11月前后，非官宣','assessment':'测试背景分析，不代表真实任务新增证据','confidence':'中低','missing_confirmations':['最新窗口','当次开放'],'review_by':'2026-10-15T04:00:00Z','action':'先咨询预登记','sources':[{'title':'测试来源日期','url':'https://example.com/source','published_at':'2026-05-25'}]}]
+        editorial_fixture['near_annotations']=[{'ll2_id':'test-near-day','name':'近期交互测试·补充核验','site_key':'hainan','valid_from':'2026-10-16','valid_through':'2026-10-16','review_by':'2026-10-20T04:00:00Z','checked_at':'2026-10-14T06:00:00Z','note':'报道窗口与交通管制分别表达','booking_note':'当日开放与预约待核实','reported_window':'报道择机范围交互测试','sources':[{'title':'补充来源交互测试','url':'https://example.com/annotation'}]}]
         editorial_fixture['recent_outcomes']=[{'id':'test-completed','name':'历史完成交互测试','confirmed':True,'country_code':'CHN','occurred_at':'2026-10-13T11:40:00Z','result_text':'测试已完成','sources':[{'title':'测试结果来源','url':'https://example.com/official'}]}]
         await near_page.route('**/data/editorial.json', lambda route: route.fulfill(json=editorial_fixture))
         await near_page.route('**/data/launches.json', lambda route: route.fulfill(json=fixture))
@@ -166,6 +167,12 @@ async def check():
         assert '历史，不计未来任务' in await near_page.locator('#lm-changes').inner_text()
         assert '已过窗口测试' not in await near_page.locator('#lm-cards').inner_text()
         assert '年度占位测试' not in await near_page.locator('#lm-cards').inner_text()
+        assert '报道择机范围交互测试' in await near_page.locator('#lm-cards').inner_text()
+        await near_page.locator('[data-open="ll2-test-near-day"]').click()
+        assert '补充来源交互测试' in await near_page.locator('#detail-content').inner_text()
+        assert '当日开放与预约待核实' in await near_page.locator('#detail-content').inner_text()
+        await near_page.keyboard.press('Escape')
+        await near_page.wait_for_function("!new URL(location.href).searchParams.has('mission')")
         await near_page.locator('#stage-filter').select_option('inference')
         await near_page.locator('#lm-search').fill('神舟二十四')
         assert await near_page.locator('.finder-card').count() == 1
