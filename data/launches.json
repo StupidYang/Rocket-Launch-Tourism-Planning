@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-10-18T15:50:54Z",
+  "fetched_at": "2026-10-18T20:40:16Z",
   "source_count": 476,
   "fetched_count": 476,
   "pages": 5,
@@ -58,7 +58,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-10-16T11:53:14Z",
+      "source_updated_at": "2026-10-18T18:00:56Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/69ebbcd2-b257-4070-9ef9-21e7d1f8a883/",
       "source_level": "third-party",
       "slug": "h3-24-martian-moons-exploration-mmx"
