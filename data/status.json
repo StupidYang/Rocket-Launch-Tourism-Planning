@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "last_attempt_at": "2026-10-20T17:01:31Z",
-  "last_success_at": "2026-10-20T11:33:31Z",
-  "state": "error",
-  "message": "本轮采集未成功，保留上一份完整数据。The read operation timed out",
+  "last_attempt_at": "2026-10-20T21:35:57Z",
+  "last_success_at": "2026-10-20T21:35:57Z",
+  "state": "ok",
+  "message": "完整获取477条源记录，显示477条待发任务；5页",
   "schedule": "每6小时，UTC 00:17/06:17/12:17/18:17；调度可能延迟",
-  "run_url": "https://github.com/StupidYang/Rocket-Launch-Tourism-Planning/actions/runs/39462515066"
+  "run_url": "https://github.com/StupidYang/Rocket-Launch-Tourism-Planning/actions/runs/39501644179"
 }
