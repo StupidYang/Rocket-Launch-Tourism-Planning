@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-20T04:47:42Z",
+  "updated_at": "2026-10-20T11:33:31Z",
   "items": [
+    {
+      "at": "2026-10-20T11:33:31Z",
+      "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
+      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-20T10:30:00Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-10-20T04:47:42Z",
       "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
