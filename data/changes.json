@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-21T00:09:49Z",
+  "updated_at": "2026-10-21T04:43:38Z",
   "items": [
+    {
+      "at": "2026-10-21T04:43:38Z",
+      "id": "c6f8b6b0-6bae-460a-99bb-c12a3d29effd",
+      "name": "Ceres-1S | Unknown Payload",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-10-21T03:35:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Haiyang Oriental Spaceport"
+    },
     {
       "at": "2026-10-21T00:09:49Z",
       "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
