@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-23T21:23:14Z",
+  "updated_at": "2026-10-24T00:45:09Z",
   "items": [
+    {
+      "at": "2026-10-24T00:45:09Z",
+      "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-15",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-23T22:28:53Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
     {
       "at": "2026-10-23T21:23:14Z",
       "id": "3621085f-deae-4f89-bd54-c0f96ee44421",
