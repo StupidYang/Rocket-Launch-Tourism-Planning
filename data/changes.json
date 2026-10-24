@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-24T00:45:09Z",
+  "updated_at": "2026-10-24T04:33:58Z",
   "items": [
+    {
+      "at": "2026-10-24T04:33:58Z",
+      "id": "6a21c602-7d69-482b-b0c3-32c854749d2a",
+      "name": "Nuri | CAS500-5",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2028-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "KOR",
+      "site": "Naro Space Center, South Korea"
+    },
     {
       "at": "2026-10-24T00:45:09Z",
       "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
