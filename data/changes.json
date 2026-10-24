@@ -1,6 +1,54 @@
 {
-  "updated_at": "2026-10-24T10:56:53Z",
+  "updated_at": "2026-10-24T15:55:30Z",
   "items": [
+    {
+      "at": "2026-10-24T15:55:30Z",
+      "id": "c9605b67-8a53-4239-a8ae-577fe3b79799",
+      "name": "Long March 2F/G | Shenzhou 24",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Year Half 2"
+      },
+      "after": {
+        "net": "2026-11-25T00:00:00Z",
+        "precision": "Day"
+      },
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-25T00:00:00Z",
+      "precision": "Day",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-10-24T15:55:30Z",
+      "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
+      "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-10-29T00:00:00Z",
+        "precision": "Day"
+      },
+      "after": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-30T00:00:00Z",
+      "precision": "Month",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-10-24T04:33:58Z",
       "id": "6a21c602-7d69-482b-b0c3-32c854749d2a",
