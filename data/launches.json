@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-10-24T20:47:12Z",
+  "fetched_at": "2026-10-25T00:37:53Z",
   "source_count": 473,
   "fetched_count": 473,
   "pages": 5,
@@ -31,7 +31,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-10-20T12:35:18Z",
+      "source_updated_at": "2026-10-25T00:34:36Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/6b95bcc8-1f88-4539-84fe-f63630138766/",
       "source_level": "third-party",
       "slug": "long-march-8a-unknown-payload"
