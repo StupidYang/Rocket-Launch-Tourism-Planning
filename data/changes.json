@@ -1,6 +1,107 @@
 {
-  "updated_at": "2026-10-26T12:58:18Z",
+  "updated_at": "2026-10-26T22:38:36Z",
   "items": [
+    {
+      "at": "2026-10-26T22:38:36Z",
+      "id": "e2886a96-5ce9-4f45-872f-4e25a00be837",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-16",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-10-27T04:45:00Z",
+        "precision": "Minute"
+      },
+      "after": {
+        "net": "2026-10-27T05:46:37Z",
+        "precision": "Second"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-27T05:46:37Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-26T22:38:36Z",
+      "id": "54d471e8-695c-4fa7-a3cf-dbd8b389e8ae",
+      "name": "Falcon 9 Block 5 | USSF-432",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-02T01:56:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-26T22:38:36Z",
+      "id": "56ca6058-7ccc-4ec0-b1b0-fb49f3bfee49",
+      "name": "Falcon 9 Block 5 | NROL-195",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-05T22:34:00Z",
+        "precision": "Minute",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month",
+        "status": "To Be Determined"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-30T00:00:00Z",
+      "precision": "Month",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-26T22:38:36Z",
+      "id": "64730687-6dc3-412e-b3e3-1c7d2729c2c6",
+      "name": "Vega-C | CRISTAL-A",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Quarter 4",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-10-26T22:38:36Z",
+      "id": "7fed6954-5934-43ec-b32e-199d1759f215",
+      "name": "Falcon 9 Block 5 | 6x Astranis MicroGEO",
+      "type": "changed",
+      "fields": [
+        "net",
+        "pad"
+      ],
+      "before": {
+        "net": "2027-12-31T00:00:00Z",
+        "pad": "Unknown Pad"
+      },
+      "after": {
+        "net": "2028-12-31T00:00:00Z",
+        "pad": "Space Launch Complex 40"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2028-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-10-26T12:58:18Z",
       "id": "20d5676e-111b-40e3-8923-b218c3665ca2",
