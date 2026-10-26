@@ -1,6 +1,57 @@
 {
-  "updated_at": "2026-10-26T04:44:06Z",
+  "updated_at": "2026-10-26T12:58:18Z",
   "items": [
+    {
+      "at": "2026-10-26T12:58:18Z",
+      "id": "20d5676e-111b-40e3-8923-b218c3665ca2",
+      "name": "GSLV Mk II | IRNSS-1L (NVS-03)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-10-30T17:00:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-10-30T18:21:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-30T18:21:00Z",
+      "precision": "Minute",
+      "country_code": "IND",
+      "site": "Satish Dhawan Space Centre, India"
+    },
+    {
+      "at": "2026-10-26T12:58:18Z",
+      "id": "dc570565-4dcf-4ab9-8174-bf88efef477f",
+      "name": "Long March 12A | Flight 2",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-10-31T00:00:00Z",
+        "precision": "Month"
+      },
+      "after": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": true,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-10-25T11:24:14Z",
       "id": "a9ee8337-127d-4f17-9e3a-a07999f80099",
