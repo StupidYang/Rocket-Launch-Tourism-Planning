@@ -1,6 +1,210 @@
 {
-  "updated_at": "2026-10-28T12:51:50Z",
+  "updated_at": "2026-10-28T22:33:19Z",
   "items": [
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "57ce0a39-d035-4f16-a418-bd6108f78199",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-18",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-10-30T04:02:00Z"
+      },
+      "after": {
+        "net": "2026-10-31T03:48:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-31T03:48:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "426bd2a5-02dd-4fbd-9f4d-2b8439c3a1ff",
+      "name": "Electron | The Sea God Surveys (iQPS Launch 9)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-03T00:00:00Z",
+        "precision": "Day",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "net": "2026-11-02T08:45:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-02T08:45:00Z",
+      "precision": "Hour",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "f3f201cd-0ff9-4ff7-9aaa-1d22c399c75a",
+      "name": "Kinetica 2 | SpaceSail Polar Group TBD?",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-03T00:10:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "54d471e8-695c-4fa7-a3cf-dbd8b389e8ae",
+      "name": "Falcon 9 Block 5 | USSF-432",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-02T01:56:00Z"
+      },
+      "after": {
+        "net": "2026-11-03T01:42:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-03T01:42:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "9e27a1ed-e81a-4918-b32b-0380cf3a9f8f",
+      "name": "Mir | Demo Flight",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "net": "2026-11-04T05:00:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-04T05:00:00Z",
+      "precision": "Hour",
+      "country_code": "KOR",
+      "site": "Sea Launch"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "e91d1da2-819b-4523-95bf-39ac7daa871d",
+      "name": "Ceres-2 | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-04T21:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "3cdb9dee-b5cb-406c-bbd1-06a219930fb7",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-21",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-05T02:35:00Z"
+      },
+      "after": {
+        "net": "2026-11-06T02:21:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-06T02:21:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
+      "name": "Falcon 9 Block 5 | USSF-xxx (\"R-5\")",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-10T03:03:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
+      "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "after": {
+        "net": "2026-11-13T00:00:00Z",
+        "precision": "Day"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-13T00:00:00Z",
+      "precision": "Day",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-10-28T22:33:19Z",
+      "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
+      "name": "Starship | Flight 15",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Quarter 4"
+      },
+      "after": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-30T00:00:00Z",
+      "precision": "Month",
+      "country_code": "USA",
+      "site": "SpaceX Starbase, TX, USA"
+    },
     {
       "at": "2026-10-27T22:12:13Z",
       "id": "3cdb9dee-b5cb-406c-bbd1-06a219930fb7",
