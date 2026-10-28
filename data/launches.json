@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-10-28T05:39:30Z",
+  "fetched_at": "2026-10-28T12:51:50Z",
   "source_count": 474,
   "fetched_count": 474,
   "pages": 5,
@@ -58,7 +58,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-10-26T12:04:31Z",
+      "source_updated_at": "2026-10-28T08:54:47Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/20d5676e-111b-40e3-8923-b218c3665ca2/",
       "source_level": "third-party",
       "slug": "gslv-mk-ii-irnss-1l-nvs-03"
