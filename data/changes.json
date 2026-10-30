@@ -1,6 +1,106 @@
 {
-  "updated_at": "2026-10-30T12:52:03Z",
+  "updated_at": "2026-10-30T22:17:47Z",
   "items": [
+    {
+      "at": "2026-10-30T22:17:47Z",
+      "id": "57ce0a39-d035-4f16-a418-bd6108f78199",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-18",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-10-31T03:48:00Z",
+        "precision": "Minute"
+      },
+      "after": {
+        "net": "2026-10-31T04:02:22Z",
+        "precision": "Second"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-31T04:02:22Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-10-30T22:17:47Z",
+      "id": "711de6bc-f755-475b-a12f-ec5240da3a11",
+      "name": "Long March 2C | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-05T16:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Xichang Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-10-30T22:17:47Z",
+      "id": "a2423132-f965-423f-8b03-6891b775dc54",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "type": "changed",
+      "fields": [
+        "net",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-05T20:00:00Z",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-05T21:15:00Z",
+        "status": "Go for Launch"
+      },
+      "china": true,
+      "hainan": true,
+      "net": "2026-11-05T21:15:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
+    {
+      "at": "2026-10-30T22:17:47Z",
+      "id": "a2975167-7c6f-4403-99e1-b40df17c8140",
+      "name": "Long March 8A | SatNet LEO Group TBD?",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": true,
+      "net": "2026-11-20T11:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
+    {
+      "at": "2026-10-30T22:17:47Z",
+      "id": "5ce59e3a-c343-430f-ae4e-e608ba536754",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": true,
+      "net": "2026-11-24T07:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
+    {
+      "at": "2026-10-30T22:17:47Z",
+      "id": "20d5676e-111b-40e3-8923-b218c3665ca2",
+      "name": "GSLV Mk II | IRNSS-1L (NVS-03)",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-10-30T18:21:00Z",
+      "precision": "Minute",
+      "country_code": "IND",
+      "site": "Satish Dhawan Space Centre, India"
+    },
     {
       "at": "2026-10-30T12:52:03Z",
       "id": "426bd2a5-02dd-4fbd-9f4d-2b8439c3a1ff",
