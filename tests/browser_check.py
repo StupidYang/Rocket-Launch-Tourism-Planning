@@ -6,7 +6,7 @@ import json
 import shutil
 import threading
 from pathlib import Path
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -187,8 +187,10 @@ async def check():
         href=await near_page.locator('[data-trip-link]').get_attribute('href')
         assert 'launch=2026-10-16' in href and 'period=late' in href and 'horizon%3D60' in href
         await near_page.locator('[data-trip-link]').click()
-        assert await near_page.locator('#launch-date').input_value() == '2026-10-16'
-        assert '2026-10-15' in await near_page.locator('#date-result').inner_text()
+        # The input exists before deferred guide.js has applied the URL context.
+        # Assert the eventual rendered values without weakening the journey check.
+        await expect(near_page.locator('#launch-date')).to_have_value('2026-10-16')
+        await expect(near_page.locator('#date-result')).to_contain_text('2026-10-15')
         await near_page.locator('[data-return-link]').first.click()
         assert 'horizon=60' in near_page.url
         await near_page.locator('#lm-clear').click()
