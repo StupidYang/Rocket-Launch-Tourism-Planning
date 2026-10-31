@@ -1,6 +1,33 @@
 {
-  "updated_at": "2026-10-31T12:24:27Z",
+  "updated_at": "2026-10-31T21:31:47Z",
   "items": [
+    {
+      "at": "2026-10-31T21:31:47Z",
+      "id": "426bd2a5-02dd-4fbd-9f4d-2b8439c3a1ff",
+      "name": "Electron | The Sea God Surveys (iQPS Launch 9)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-02T16:00:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-02T16:41:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-02T16:41:00Z",
+      "precision": "Minute",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
     {
       "at": "2026-10-31T05:37:30Z",
       "id": "57ce0a39-d035-4f16-a418-bd6108f78199",
