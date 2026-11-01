@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-11-01T05:59:13Z",
+  "fetched_at": "2026-11-01T13:19:33Z",
   "source_count": 478,
   "fetched_count": 478,
   "pages": 5,
@@ -85,7 +85,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-11-01T01:00:49Z",
+      "source_updated_at": "2026-11-01T11:02:55Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/54d471e8-695c-4fa7-a3cf-dbd8b389e8ae/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-ussf-432"
@@ -220,7 +220,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-10-29T17:31:03Z",
+      "source_updated_at": "2026-11-01T11:02:58Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/3cdb9dee-b5cb-406c-bbd1-06a219930fb7/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-starlink-group-15-21"
