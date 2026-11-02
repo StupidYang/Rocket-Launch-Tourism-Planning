@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-11-02T00:39:08Z",
+  "updated_at": "2026-11-02T05:58:34Z",
   "items": [
+    {
+      "at": "2026-11-02T05:58:34Z",
+      "id": "e91d1da2-819b-4523-95bf-39ac7daa871d",
+      "name": "Ceres-2 | Unknown Payload",
+      "type": "changed",
+      "fields": [
+        "net",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-04T21:00:00Z",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-06T23:35:00Z",
+        "status": "Go for Launch"
+      },
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-06T23:35:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-02T00:39:08Z",
       "id": "3cdb9dee-b5cb-406c-bbd1-06a219930fb7",
