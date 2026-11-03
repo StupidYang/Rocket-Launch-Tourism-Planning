@@ -1,6 +1,101 @@
 {
-  "updated_at": "2026-11-02T15:46:36Z",
+  "updated_at": "2026-11-03T00:35:40Z",
   "items": [
+    {
+      "at": "2026-11-03T00:35:40Z",
+      "id": "54d471e8-695c-4fa7-a3cf-dbd8b389e8ae",
+      "name": "Falcon 9 Block 5 | USSF-432",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-04T01:28:00Z"
+      },
+      "after": {
+        "net": "2026-11-07T00:46:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-07T00:46:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-03T00:35:40Z",
+      "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
+      "name": "Falcon 9 Block 5 | USSF-xxx (\"R-5\")",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-10T03:03:00Z"
+      },
+      "after": {
+        "net": "2026-11-09T03:17:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-09T03:17:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-03T00:35:40Z",
+      "id": "d74afbc7-0de5-491c-be05-4e9c31f736ac",
+      "name": "Falcon 9 Block 5 | Cygnus CRS-2 NG-25",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-29T16:00:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-29T15:49:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-29T15:49:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-03T00:35:40Z",
+      "id": "426bd2a5-02dd-4fbd-9f4d-2b8439c3a1ff",
+      "name": "Electron | The Sea God Surveys (iQPS Launch 9)",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-02T16:41:00Z",
+      "precision": "Minute",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
+    {
+      "at": "2026-11-03T00:35:40Z",
+      "id": "f3f201cd-0ff9-4ff7-9aaa-1d22c399c75a",
+      "name": "Kinetica 2 | SpaceSail Polar Group TBD?",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-03T00:10:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-02T15:46:36Z",
       "id": "426bd2a5-02dd-4fbd-9f4d-2b8439c3a1ff",
