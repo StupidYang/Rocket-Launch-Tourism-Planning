@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-11-03T23:20:46Z",
+  "updated_at": "2026-11-04T00:12:48Z",
   "items": [
+    {
+      "at": "2026-11-04T00:12:48Z",
+      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
+      "name": "Falcon 9 Block 5 | USSF-317",
+      "type": "changed",
+      "fields": [
+        "name",
+        "status"
+      ],
+      "before": {
+        "name": "Falcon 9 Block 5 | USSF-xxx (\"R-6\")",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "name": "Falcon 9 Block 5 | USSF-317",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-13T04:23:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
     {
       "at": "2026-11-03T23:20:46Z",
       "id": "a2423132-f965-423f-8b03-6891b775dc54",
