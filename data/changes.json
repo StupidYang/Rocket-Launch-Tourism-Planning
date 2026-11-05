@@ -1,6 +1,82 @@
 {
-  "updated_at": "2026-11-05T06:42:35Z",
+  "updated_at": "2026-11-05T19:55:26Z",
   "items": [
+    {
+      "at": "2026-11-05T19:55:26Z",
+      "id": "8bf5f61e-a7e1-41e6-aede-7b87e4beebab",
+      "name": "Falcon 9 Block 5 | CHORUS",
+      "type": "changed",
+      "fields": [
+        "precision"
+      ],
+      "before": {
+        "precision": "Quarter 4"
+      },
+      "after": {
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Month",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-05T19:55:26Z",
+      "id": "e61d353c-db55-4a57-8184-0fab187231e6",
+      "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 2 (x 9)",
+      "type": "changed",
+      "fields": [
+        "precision"
+      ],
+      "before": {
+        "precision": "Year Half 2"
+      },
+      "after": {
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Month",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-05T19:55:26Z",
+      "id": "a5e81552-ecdd-4d89-b6bd-b594e22ca891",
+      "name": "New Glenn | Blue Ring-1",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2027-01-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-01-31T00:00:00Z",
+      "precision": "Month",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-05T19:55:26Z",
+      "id": "711de6bc-f755-475b-a12f-ec5240da3a11",
+      "name": "Long March 2C | Unknown Payload",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-05T16:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Xichang Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-05T06:42:35Z",
       "id": "9e27a1ed-e81a-4918-b32b-0380cf3a9f8f",
