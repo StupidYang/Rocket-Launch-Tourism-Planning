@@ -155,6 +155,7 @@ async def check():
         editorial_fixture=json.loads((out/'data/editorial.json').read_text())
         editorial_fixture['near_term']=[{'id':'test-assessment','name':'神舟二十四研判交互测试','assessment_month':'2026-11','site_key':'jiuquan','group':'national','target_window':'测试预计11月前后，非官宣','assessment':'测试背景分析，不代表真实任务新增证据','confidence':'中低','missing_confirmations':['最新窗口','当次开放'],'review_by':'2026-10-15T04:00:00Z','action':'先咨询预登记','sources':[{'title':'测试来源日期','url':'https://example.com/source','published_at':'2026-05-25'}]}]
         editorial_fixture['near_annotations']=[{'ll2_id':'test-near-day','name':'近期交互测试·补充核验','site_key':'hainan','valid_from':'2026-10-16','valid_through':'2026-10-16','review_by':'2026-10-20T04:00:00Z','checked_at':'2026-10-14T06:00:00Z','note':'报道窗口与交通管制分别表达','booking_note':'当日开放与预约待核实','reported_window':'报道择机范围交互测试','sources':[{'title':'补充来源交互测试','url':'https://example.com/annotation'}]}]
+        editorial_fixture['viewing']=[{'site':'文昌 / 海南商发','status':'其他任务专属状态','booking_route':'其他任务专属票务','sources':[{'title':'其他任务专属来源','url':'https://example.com/other-mission'}]}]
         editorial_fixture['recent_outcomes']=[{'id':'test-completed','name':'历史完成交互测试','confirmed':True,'country_code':'CHN','occurred_at':'2026-10-13T11:40:00Z','result_text':'测试已完成','sources':[{'title':'测试结果来源','url':'https://example.com/official'}]}]
         await near_page.route('**/data/editorial.json', lambda route: route.fulfill(json=editorial_fixture))
         await near_page.route('**/data/launches.json', lambda route: route.fulfill(json=fixture))
@@ -171,6 +172,7 @@ async def check():
         await near_page.locator('[data-open="ll2-test-near-day"]').click()
         assert '补充来源交互测试' in await near_page.locator('#detail-content').inner_text()
         assert '当日开放与预约待核实' in await near_page.locator('#detail-content').inner_text()
+        assert '其他任务专属' not in await near_page.locator('#detail-content').inner_text()
         await near_page.keyboard.press('Escape')
         await near_page.wait_for_function("!new URL(location.href).searchParams.has('mission')")
         await near_page.locator('#stage-filter').select_option('inference')
@@ -199,6 +201,8 @@ async def check():
         await near_page.locator('#lm-search').fill('月份候选测试')
         await near_page.locator('[data-open]').click()
         assert 'launch=' not in await near_page.locator('[data-trip-link]').get_attribute('href')
+        assert '其他任务专属' not in await near_page.locator('#detail-content').inner_text()
+        assert '尚未核实本任务' in await near_page.locator('#detail-content').inner_text()
         await near_page.locator('[data-horizon="2027"]').click()
         assert '2027全年规划' in await near_page.locator('#horizon-note').inner_text()
         await near_page.go_back()

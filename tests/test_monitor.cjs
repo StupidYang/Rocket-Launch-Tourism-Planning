@@ -158,3 +158,27 @@ for(const patch of [{net:'2026-10-24T03:35:00Z'},{status_id:5},{pad:'Yangjiang o
 assert.equal(ex.combine(rizhaoFeed,rizhaoNote,{horizon:'60',now:Date.parse('2026-10-20T04:00:00Z')})[0].siteName,undefined);
 assert.equal(ex.combine({items:[]},rizhaoNote,{horizon:'60',now:rizhaoNow}).length,0);
 console.log('Rizhao annotation deduplication, precision, expiry and source-conflict boundaries passed');
+
+
+// Mission details must not inherit another mission's dates or booking product.
+const legacyBooking={status:'其他任务11月9日',booking_route:'其他任务11月6日旧票',sources:[{url:'https://example.com/other-mission'}]};
+const genericBooking=ex.bookingInfo({access:'本任务开放待核实'},legacyBooking);
+assert.equal(genericBooking.status,'本任务开放待核实');
+assert.doesNotMatch(genericBooking.note,/11月|旧票/);
+assert.equal(genericBooking.sources.length,0);
+const scopedBooking={booking_scope:'site',status:'通用目的地条件',booking_route:'逐项核对当次任务与延期退款',booking_sources:[{title:'历史渠道背景',url:'https://example.com/site'}]};
+assert.equal(ex.bookingInfo({},scopedBooking).note,scopedBooking.booking_route);
+assert.equal(ex.bookingInfo({},scopedBooking).sources.length,1);
+assert.equal(ex.bookingInfo({bookingNote:'仅本任务有效的补充',access:'本任务说明'},scopedBooking).note,'仅本任务有效的补充');
+assert.equal(ex.bookingInfo({bookingNote:'仅本任务有效的补充',access:'本任务说明'},scopedBooking).status,'本任务说明');
+const expiredBookingRecord=ex.combine(rizhaoFeed,rizhaoNote,{horizon:'60',now:Date.parse('2026-10-20T04:00:00Z')})[0];
+assert.doesNotMatch(ex.bookingInfo(expiredBookingRecord,legacyBooking).note,/旧票|当日入场待核实/);
+for(const entry of ed.viewing){
+ assert.equal(entry.booking_scope,'site');
+ assert.ok(Array.isArray(entry.booking_sources));
+}
+const hainanBooking=ed.viewing.find(v=>v.site.startsWith('文昌'));
+const jiuquanBooking=ed.viewing.find(v=>v.site.startsWith('酒泉'));
+assert.doesNotMatch(ex.bookingInfo({},hainanBooking).status+ex.bookingInfo({},hainanBooking).note,/11月6|11月9|3992462/);
+assert.doesNotMatch(ex.bookingInfo({},jiuquanBooking).status+ex.bookingInfo({},jiuquanBooking).note,/11月23|11月25|神舟二十四|97641052/);
+console.log('Mission-scoped booking, expired annotations and generic destination fallback passed');
