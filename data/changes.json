@@ -1,6 +1,27 @@
 {
-  "updated_at": "2026-11-09T00:56:04Z",
+  "updated_at": "2026-11-09T06:22:02Z",
   "items": [
+    {
+      "at": "2026-11-09T06:22:02Z",
+      "id": "cb0c27fd-496c-4f74-aa04-9c0e5af33e3c",
+      "name": "Epsilon S | JV-LOTUSat-1",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "JPN",
+      "site": "Uchinoura Space Center, Japan"
+    },
     {
       "at": "2026-11-09T00:56:04Z",
       "id": "a2423132-f965-423f-8b03-6891b775dc54",
