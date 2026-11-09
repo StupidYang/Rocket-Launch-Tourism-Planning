@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-08T13:21:05Z",
+  "updated_at": "2026-11-09T00:56:04Z",
   "items": [
+    {
+      "at": "2026-11-09T00:56:04Z",
+      "id": "a2423132-f965-423f-8b03-6891b775dc54",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": true,
+      "net": "2026-11-08T20:25:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
     {
       "at": "2026-11-07T21:48:12Z",
       "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
