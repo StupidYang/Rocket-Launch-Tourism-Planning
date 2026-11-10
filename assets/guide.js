@@ -423,9 +423,27 @@
       $('trip-planner').scrollIntoView();
     });
   }
+  function revealLinkedArchive() {
+    let target;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+    if (!target) return;
+    const article = target.closest('[data-trip-site]');
+    if (article && article.hidden) {
+      const url = new URL(location.href);
+      url.searchParams.set('site', article.dataset.tripSite);
+      for (const key of ['mission', 'launch', 'period']) url.searchParams.delete(key);
+      history.replaceState(null, '', url);
+      renderTrip();
+    }
+    for (let parent = target.parentElement; parent; parent = parent.parentElement) {
+      if (parent.tagName === 'DETAILS') parent.open = true;
+    }
+    if (target.closest('details')) target.scrollIntoView({ block: 'start' });
+  }
   function restoreTrip() {
     $('trip-selection-note').textContent = '';
     renderTrip();
+    revealLinkedArchive();
   }
   window.addEventListener('popstate', restoreTrip);
   window.addEventListener('hashchange', restoreTrip);
@@ -482,4 +500,5 @@
   budget();
   progress();
   renderTrip();
+  revealLinkedArchive();
 })();

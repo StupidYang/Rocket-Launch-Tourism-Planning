@@ -26,6 +26,22 @@ async def check():
         errors = []
         page.on('pageerror', lambda e: errors.append(str(e)))
         await page.goto(base, wait_until='networkidle')
+        assert await page.locator('[data-horizon="60"]').get_attribute('aria-pressed') == 'true'
+        assert await page.evaluate("getComputedStyle(document.body).backgroundColor") == 'rgb(249, 248, 243)'
+        assert await page.locator('.hero-art img').evaluate('(img)=>img.complete && img.naturalWidth > 0')
+        await page.screenshot(path=str(shots/'home-desktop.png'), full_page=True)
+        await page.screenshot(path=str(shots/'home-desktop-first-screen.png'))
+        await page.set_viewport_size({'width':390,'height':844})
+        assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        await page.screenshot(path=str(shots/'home-mobile-first-screen.png'))
+        await page.set_viewport_size({'width':1440,'height':1000})
+        await page.locator('[data-site-pick="hainan"]').click()
+        assert await page.locator('#site-filter').input_value() == 'hainan'
+        assert 'horizon=60' in page.url and 'site=hainan' in page.url
+        await page.locator('[data-site-pick="hainan"]').click()
+        assert await page.locator('#site-filter').input_value() == ''
+        await page.locator('[data-horizon="2027"]').click()
+        assert 'horizon=2027' in page.url
         total = await page.locator('.finder-card').count()
         assert total >= 5, 'Independent candidates must be discoverable beyond the three LL2 rows'
         assert '不是全国发射总数' in await page.locator('#lm-count').inner_text()
@@ -42,6 +58,17 @@ async def check():
         assert await page.locator('[data-open]').evaluate('(e)=>e===document.activeElement')
         await page.locator('[data-open]').click()
         deep_link = page.url
+        await page.evaluate("Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async(text)=>{window.__sharedLink=text}}})")
+        await page.locator('#lm-share').click()
+        shared = await page.evaluate('window.__sharedLink')
+        assert 'horizon=2027' in shared and 'mission=' in shared and '#mission-detail' in shared
+        assert '已复制' in await page.locator('#lm-feedback').inner_text()
+        await page.locator('#lm-share').click()
+        assert await page.evaluate('window.__sharedLink') == shared
+        await page.evaluate("Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async()=>{throw Error('Clipboard unavailable')}}})")
+        await page.locator('#lm-share').click()
+        assert await page.locator('#share-fallback').is_visible()
+        assert await page.locator('#share-url').input_value() == shared
         await page.go_back()
         assert not await page.locator('#mission-detail').is_visible()
         assert await page.locator('#lm-search').input_value() == '轻舟'
@@ -218,6 +245,39 @@ async def check():
         assert await near_page.evaluate('document.documentElement.scrollWidth <= innerWidth')
         await near_page.screenshot(path=str(shots/'near-mobile.png'),full_page=True)
         await near_context.close()
+        # Current travel advice comes before archived notices; old deep links still open.
+        await page.goto(base+'/guide.html?site=hainan#trip-planner', wait_until='networkidle')
+        assert not await page.locator('#site-hainan .history-archive').evaluate('(e)=>e.open')
+        assert not await page.locator('#hainan-nov9-traffic').is_visible()
+        assert await page.locator('#site-hainan > .grid2').is_visible()
+        assert await page.locator('#site-hainan').evaluate("(e)=>e.querySelector('.grid2').compareDocumentPosition(e.querySelector('.history-archive')) & Node.DOCUMENT_POSITION_FOLLOWING")
+        await page.set_viewport_size({'width':1440,'height':1000})
+        await page.screenshot(path=str(shots/'guide-desktop.png'),full_page=True)
+        await page.locator('#site-hainan .history-archive > summary').click()
+        assert await page.locator('#hainan-nov9-traffic').is_visible()
+        await page.locator('#site-hainan .history-archive > summary').click()
+        assert not await page.locator('#hainan-nov9-traffic').is_visible()
+        await page.goto(base+'/guide.html#jiuquan-early-november',wait_until='networkidle')
+        assert await page.locator('#trip-site').input_value() == 'jiuquan'
+        assert await page.locator('#jiuquan-early-november').is_visible()
+        await page.goto(base+'/guide.html?site=hainan#trip-planner',wait_until='networkidle')
+        for width in [320,390,768,1440]:
+            await page.set_viewport_size({'width':width,'height':900})
+            assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'Guide overflows at {width}'
+            await page.goto(base,wait_until='networkidle')
+            assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'Homepage overflows at {width}'
+            if width==390:
+                await page.screenshot(path=str(shots/'home-mobile.png'),full_page=True)
+            await page.goto(base+'/guide.html?site=hainan#trip-planner',wait_until='networkidle')
+        (shots/'design-checks.json').write_text(json.dumps({
+            'viewports_checked':[320,390,768,1440],
+            'homepage_default':'60 days',
+            'annual_explicit_links':True,
+            'share_and_fallback':True,
+            'history_collapsed_and_deep_links_preserved':True,
+            'body_background':'rgb(249, 248, 243)',
+            'note':'Screenshots use the built real snapshot except near-* images, which use isolated test fixtures.'
+        },indent=2))
         # A fresh no-JavaScript reader still has useful, direct guide and booking links.
         nojs = await browser.new_context(java_script_enabled=False)
         nojs_page = await nojs.new_page()

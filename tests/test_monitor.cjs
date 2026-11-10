@@ -182,3 +182,14 @@ const jiuquanBooking=ed.viewing.find(v=>v.site.startsWith('酒泉'));
 assert.doesNotMatch(ex.bookingInfo({},hainanBooking).status+ex.bookingInfo({},hainanBooking).note,/11月6|11月9|3992462/);
 assert.doesNotMatch(ex.bookingInfo({},jiuquanBooking).status+ex.bookingInfo({},jiuquanBooking).note,/11月23|11月25|神舟二十四|97641052/);
 console.log('Mission-scoped booking, expired annotations and generic destination fallback passed');
+
+assert.equal(ex.parseState('').horizon,'60','New visitors should see near-term launches first');
+assert.equal(ex.parseState('?horizon=2027&q=轻舟&site=unknown&mission=editorial-qingzhou').horizon,'2027');
+assert.equal(ex.parseState('?horizon=bogus&site=bad&kind=bad&stage=bad').site,'');
+assert.equal(ex.parseState('?horizon=60&q=火箭').q,'火箭');
+assert.equal(ex.editorialStatus({check_status:'partial'}),'部分范围已核验');
+assert.equal(ex.editorialStatus({check_status:'error'}),'本轮核验失败');
+assert.doesNotMatch(ex.editorialStatus({check_status:'partial'}),/完整|全部/);
+const timestampRecord=ex.combine({items:[row('Year',{id:'timestamp-test',name:'时间测试',source_updated_at:'2026-10-10T01:00:00Z',category:'state'})]},{}).find(r=>r.id==='ll2-timestamp-test');
+assert.equal(timestampRecord.checked,'2026-10-10T01:00:00Z','LL2 source time must not be replaced by editorial content-change time');
+console.log('Near-term default, explicit annual deep links and honest timestamp labels passed');
