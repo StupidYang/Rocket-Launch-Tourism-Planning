@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-11-09T22:19:01Z",
+  "fetched_at": "2026-11-10T00:48:07Z",
   "source_count": 476,
   "fetched_count": 476,
   "pages": 5,
@@ -166,7 +166,7 @@
       "status_id": 8,
       "status": "To Be Confirmed",
       "status_abbrev": "TBC",
-      "source_updated_at": "2026-11-08T15:50:02Z",
+      "source_updated_at": "2026-11-09T23:06:16Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
       "source_level": "third-party",
       "slug": "starship-starlink-group-31-2-starship-flight-15"
