@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-11T06:12:47Z",
+  "updated_at": "2026-11-11T14:20:16Z",
   "items": [
+    {
+      "at": "2026-11-11T14:20:16Z",
+      "id": "d66590ab-b273-47ff-b85a-608b62851b4b",
+      "name": "Long March 2D | Unknown Payload",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-11T11:40:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-11T00:40:53Z",
       "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
