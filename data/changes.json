@@ -1,6 +1,89 @@
 {
-  "updated_at": "2026-11-12T15:10:36Z",
+  "updated_at": "2026-11-12T23:37:10Z",
   "items": [
+    {
+      "at": "2026-11-12T23:37:10Z",
+      "id": "bff2fc91-eddd-4dfc-af26-ac0674cfab4d",
+      "name": "Soyuz 2.1b/Fregat-M | MKA Kinosputnik, KOEN and others",
+      "type": "changed",
+      "fields": [
+        "name",
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "name": "Soyuz 2.1a/Fregat-M | MKA Kinosputnik, KOEN and others",
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "name": "Soyuz 2.1b/Fregat-M | MKA Kinosputnik, KOEN and others",
+        "net": "2026-11-14T00:50:00Z",
+        "precision": "Hour",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-14T00:50:00Z",
+      "precision": "Hour",
+      "country_code": "RUS",
+      "site": "Vostochny Cosmodrome, Siberia, Russian Federation"
+    },
+    {
+      "at": "2026-11-12T23:37:10Z",
+      "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
+      "name": "Long March 2D | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-18T22:50:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Taiyuan Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-11-12T23:37:10Z",
+      "id": "951a341f-236b-42fe-a667-4ab2fcf36eac",
+      "name": "Falcon 9 Block 5 | NROL-136",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-21T12:30:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-12T23:37:10Z",
+      "id": "e2523821-9760-4cb4-ad1f-7ce2e30419bd",
+      "name": "Kuaizhou 11 | Unknown Payload",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-12T19:50:00Z",
+        "precision": "Hour",
+        "status": "Go for Launch"
+      },
+      "after": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month",
+        "status": "To Be Determined"
+      },
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-30T00:00:00Z",
+      "precision": "Month",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-12T15:10:36Z",
       "id": "9e27a1ed-e81a-4918-b32b-0380cf3a9f8f",
