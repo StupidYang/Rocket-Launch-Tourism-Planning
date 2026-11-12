@@ -1,6 +1,147 @@
 {
-  "updated_at": "2026-11-11T14:20:16Z",
+  "updated_at": "2026-11-12T00:40:20Z",
   "items": [
+    {
+      "at": "2026-11-12T00:40:20Z",
+      "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
+      "name": "Falcon 9 Block 5 | USSF-627",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-12T02:35:00Z",
+        "precision": "Minute"
+      },
+      "after": {
+        "net": "2026-11-12T04:36:30Z",
+        "precision": "Second"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-12T04:36:30Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-12T00:40:20Z",
+      "id": "875ba957-be5f-42bd-8a6e-ed98254f572a",
+      "name": "Firefly Alpha Block 2 | ConnectedCosmos Launch 1",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Quarter 4"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-12T00:40:20Z",
+      "id": "d47cbca4-48c1-455a-b357-f156833b189e",
+      "name": "Firefly Alpha Block 2 | ConnectedCosmos Launch 2",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Quarter 4"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-12T00:40:20Z",
+      "id": "c71bc50d-de5f-48ea-8a74-0503871eaaf7",
+      "name": "Firefly Alpha Block 2 | ConnectedCosmos Launch 3",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2027-02-28T00:00:00Z",
+        "precision": "Quarter 1"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-12T00:40:20Z",
+      "id": "80b587cd-ca6f-4b8f-b026-1d02889a1019",
+      "name": "Firefly Alpha Block 2 | ConnectedCosmos Launch 4",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2027-04-30T00:00:00Z",
+        "precision": "Quarter 2"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-12T00:40:20Z",
+      "id": "b94b49fc-5784-4dfd-92e7-07e57f50edcd",
+      "name": "Firefly Alpha Block 2 | TacSat",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
     {
       "at": "2026-11-11T14:20:16Z",
       "id": "d66590ab-b273-47ff-b85a-608b62851b4b",
