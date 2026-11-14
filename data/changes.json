@@ -1,6 +1,51 @@
 {
-  "updated_at": "2026-11-14T06:18:24Z",
+  "updated_at": "2026-11-14T17:58:58Z",
   "items": [
+    {
+      "at": "2026-11-14T17:58:58Z",
+      "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
+      "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-14T17:32:30Z"
+      },
+      "after": {
+        "net": "2026-11-15T17:11:30Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-15T17:11:30Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-14T17:58:58Z",
+      "id": "2093e4fc-ac8c-4296-a1b5-deececee6a72",
+      "name": "Electron | StriX Launch 14",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2027-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "after": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-30T00:00:00Z",
+      "precision": "Month",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
     {
       "at": "2026-11-14T06:18:24Z",
       "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
