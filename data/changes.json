@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-13T19:39:27Z",
+  "updated_at": "2026-11-14T06:18:24Z",
   "items": [
+    {
+      "at": "2026-11-14T06:18:24Z",
+      "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
+      "name": "Starship | Starlink Group 31-2 (Starship Flight 15)",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-13T22:45:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "SpaceX Starbase, TX, USA"
+    },
+    {
+      "at": "2026-11-14T06:18:24Z",
+      "id": "bff2fc91-eddd-4dfc-af26-ac0674cfab4d",
+      "name": "Soyuz 2.1b/Fregat-M | MKA Kinosputnik, KOEN and others",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-14T01:16:00Z",
+      "precision": "Minute",
+      "country_code": "RUS",
+      "site": "Vostochny Cosmodrome, Siberia, Russian Federation"
+    },
+    {
+      "at": "2026-11-14T06:18:24Z",
+      "id": "db3500ac-965b-4ad8-b417-cb8d8d005586",
+      "name": "Electron | The Mountain God Rises (iQPS Launch 10)",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-14T05:30:00Z",
+      "precision": "Minute",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
     {
       "at": "2026-11-13T19:39:27Z",
       "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
