@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-15T06:25:43Z",
+  "updated_at": "2026-11-15T18:49:06Z",
   "items": [
+    {
+      "at": "2026-11-15T18:49:06Z",
+      "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
+      "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-15T17:11:30Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-11-14T17:58:58Z",
       "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
