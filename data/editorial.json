@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "last_attempt_at": "2026-11-13T00:17:25Z",
+  "last_attempt_at": "2026-11-16T00:09:04Z",
   "checked_at": "2026-10-13T04:09:00Z",
-  "content_updated_at": "2026-11-13T00:17:25Z",
+  "content_updated_at": "2026-11-16T00:09:04Z",
   "check_status": "partial",
   "scope": "未来60天与2027中国境内发射及北京出发旅游；海南优先，含酒泉及其他国内场址；公开线索不代表全国完整任务清单",
   "items": [
@@ -345,7 +345,7 @@
       "booking_sources": []
     }
   ],
-  "check_note": "2026-11-13部分核查：仓库最新完整LL2快照与同一稳定ID原始记录确认，原11月13日凌晨酒泉未知载荷第三方目标已改为11月Month/TBD；更新说明称原NOTAM取消，不等于任务取消或发射成功。11月30日仅为月末占位。修正手册旧预报并保留过期补充，不自动续期；官方身份、实际结果、新窗口和观礼仍未核实。11月20日商家咨询线索保留11月12日原核查与11月14日复核期限。本轮不代表国家、商业、全国场址、假期及2027资料全部重核，保留全量成功核验和其他来源原时间。",
+  "check_note": "2026-11-16部分核查：直接核读太原11月19日LL2稳定ID与Space Launch Now更新说明，后者明确火箭及载荷身份不确定。补充任务专属型号待核标题、来源和观礼限制，未改采集源或升级Hour/Go为官方确认。两网站同属追踪数据链，不算独立双源。本轮未全面重核全国、商业、假期及2027资料，保留其他核查时间与到期条件。",
   "watchlist": [
     {
       "id": "qingzhou",
@@ -1072,6 +1072,34 @@
         }
       ],
       "status_checked_at": "2026-11-13T00:17:25Z"
+    },
+    {
+      "ll2_id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
+      "name": "长征二号丁（型号待核）· 未知载荷",
+      "aliases": "Long March 2D NOTAM 太原",
+      "site_key": "taiyuan",
+      "pad_contains": "Launch Complex 9",
+      "valid_from": "2026-11-19",
+      "valid_through": "2026-11-19",
+      "review_by": "2026-11-18T00:00:00Z",
+      "checked_at": "2026-11-16T00:09:04Z",
+      "evidence_level": "第三方航行通告线索；火箭及载荷身份不确定",
+      "site_note": "LL2暂列太原9号工位；实际任务、型号、地点与公众开放待官方复核",
+      "note": "Space Launch Now的11月12日19:18 UTC更新说明明确：据NOTAM新增任务，载荷和运载火箭身份不确定。它与LL2属同一追踪数据链，不算两份独立确认。LL2暂列11月19日早间、Hour精度及Go状态；源中的分钟数和Go标签都不能升级为本站官方分钟确认。长征二号丁仅是追踪器暂定型号，未知载荷不填卫星名称；航行通告时段不等于点火时间。",
+      "access_status": "当次合法观礼、审核及席位未核实",
+      "booking_note": "只作任务关注与正规渠道咨询，不生成可直接执行的太原观礼路线。须确认任务身份、实际观礼地点、当次开放、资格审核与延期退款；不能凭第三方日期或太原市区旅游产品锁定不可退交通。",
+      "sources": [
+        {
+          "title": "Space Launch Now：据NOTAM新增，火箭及载荷身份不确定",
+          "url": "https://spacelaunchnow.app/launch/long-march-2d-unknown-payload/",
+          "published_at": "2026-11-12"
+        },
+        {
+          "title": "LL2同一稳定ID：小时级第三方记录，非官方分钟确认",
+          "url": "https://ll.thespacedevs.com/2.3.0/launches/e0a11eb1-0bda-4872-b36b-140247fd5c60/?format=api",
+          "published_at": "2026-11-12"
+        }
+      ]
     }
   ]
 }
