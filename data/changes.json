@@ -1,6 +1,48 @@
 {
-  "updated_at": "2026-11-16T06:24:27Z",
+  "updated_at": "2026-11-16T21:59:06Z",
   "items": [
+    {
+      "at": "2026-11-16T21:59:06Z",
+      "id": "912a8aee-8fc2-47b4-81a5-040fa0e0a36f",
+      "name": "Vega-C | IRIDE 1",
+      "type": "changed",
+      "fields": [
+        "precision"
+      ],
+      "before": {
+        "precision": "Year"
+      },
+      "after": {
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Month",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-11-16T21:59:06Z",
+      "id": "eaff0f48-04b7-49fc-bee6-9afd9ec8cc5f",
+      "name": "Vega-C | IRIDE 2",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
     {
       "at": "2026-11-16T00:10:08Z",
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
