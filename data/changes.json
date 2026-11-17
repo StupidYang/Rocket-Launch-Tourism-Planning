@@ -1,6 +1,54 @@
 {
-  "updated_at": "2026-11-17T07:52:09Z",
+  "updated_at": "2026-11-17T20:53:24Z",
   "items": [
+    {
+      "at": "2026-11-17T20:53:24Z",
+      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
+      "name": "Falcon 9 Block 5 | USSF-317",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-19T03:00:00Z"
+      },
+      "after": {
+        "net": "2026-11-20T02:46:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-20T02:46:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-17T20:53:24Z",
+      "id": "7bdc412b-c965-4517-a131-f57a01189803",
+      "name": "Ariane 64 Block 2 | Amazon Leo (LE-04)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-23T00:00:00Z",
+        "precision": "Day",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "net": "2026-11-23T11:09:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-23T11:09:00Z",
+      "precision": "Minute",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
     {
       "at": "2026-11-16T21:59:06Z",
       "id": "912a8aee-8fc2-47b4-81a5-040fa0e0a36f",
