@@ -1,6 +1,56 @@
 {
-  "updated_at": "2026-11-18T07:24:27Z",
+  "updated_at": "2026-11-18T20:29:22Z",
   "items": [
+    {
+      "at": "2026-11-18T20:29:22Z",
+      "id": "a2975167-7c6f-4403-99e1-b40df17c8140",
+      "name": "Long March 8A | SatNet LEO Group TBD?",
+      "type": "changed",
+      "fields": [
+        "net",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-20T11:00:00Z",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-20T11:59:00Z",
+        "status": "Go for Launch"
+      },
+      "china": true,
+      "hainan": true,
+      "net": "2026-11-20T11:59:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
+    {
+      "at": "2026-11-18T20:29:22Z",
+      "id": "13270554-4bdb-42ae-916f-1bb54492204f",
+      "name": "Long March 6C | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-21T03:50:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Taiyuan Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-11-18T20:29:22Z",
+      "id": "b0d27def-0a88-44c3-a947-1fd5b8503e2c",
+      "name": "Falcon 9 Block 5 | USSF-380",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-28T04:53:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
     {
       "at": "2026-11-17T20:53:24Z",
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
