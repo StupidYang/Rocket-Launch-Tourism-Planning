@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-18T20:29:22Z",
+  "updated_at": "2026-11-19T00:38:16Z",
   "items": [
+    {
+      "at": "2026-11-19T00:38:16Z",
+      "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
+      "name": "Long March 2D | Unknown Payload",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-18T22:50:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Taiyuan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-18T20:29:22Z",
       "id": "a2975167-7c6f-4403-99e1-b40df17c8140",
