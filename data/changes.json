@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-11-19T00:38:16Z",
+  "updated_at": "2026-11-19T07:21:54Z",
   "items": [
+    {
+      "at": "2026-11-19T07:21:54Z",
+      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
+      "name": "Falcon 9 Block 5 | USSF-317",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-20T02:46:00Z",
+        "precision": "Minute"
+      },
+      "after": {
+        "net": "2026-11-20T04:28:55Z",
+        "precision": "Second"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-20T04:28:55Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
     {
       "at": "2026-11-19T00:38:16Z",
       "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
