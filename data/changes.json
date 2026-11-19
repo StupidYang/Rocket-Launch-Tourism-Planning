@@ -1,6 +1,109 @@
 {
-  "updated_at": "2026-11-19T07:54:46Z",
+  "updated_at": "2026-11-19T20:33:29Z",
   "items": [
+    {
+      "at": "2026-11-19T20:33:29Z",
+      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
+      "name": "Falcon 9 Block 5 | USSF-317",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-20T04:28:55Z"
+      },
+      "after": {
+        "net": "2026-11-20T04:32:55Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-20T04:32:55Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-19T20:33:29Z",
+      "id": "22e117bf-041c-49d5-9d09-7b180036e143",
+      "name": "Ariane 62 | Metop-SG B1",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Month"
+      },
+      "after": {
+        "net": "2026-12-17T00:00:00Z",
+        "precision": "Day"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-17T00:00:00Z",
+      "precision": "Day",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-11-19T20:33:29Z",
+      "id": "0b85fcca-5252-48d7-9ccb-c10b1da9d183",
+      "name": "Ariane 62 | Galileo L15 (FOC FM28 & FM31)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2027-03-31T00:00:00Z",
+        "precision": "Quarter 1"
+      },
+      "after": {
+        "net": "2027-02-28T00:00:00Z",
+        "precision": "Month"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-02-28T00:00:00Z",
+      "precision": "Month",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-11-19T20:33:29Z",
+      "id": "e3fa897c-922e-4eee-8237-4531b73446a2",
+      "name": "New Glenn | Project Suncatcher Launch 1",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2029-03-31T00:00:00Z",
+      "precision": "Quarter 1",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-19T20:33:29Z",
+      "id": "b0634bea-4769-4846-8546-b7574d571bbc",
+      "name": "Vega-C | ClearSpace-1",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2029-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2030-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2030-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
     {
       "at": "2026-11-19T07:21:54Z",
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
