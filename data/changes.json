@@ -1,6 +1,266 @@
 {
-  "updated_at": "2026-11-19T20:33:29Z",
+  "updated_at": "2026-11-20T07:11:55Z",
   "items": [
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
+      "name": "Falcon 9 Block 5 | USSF-317",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-20T04:32:55Z",
+        "precision": "Second"
+      },
+      "after": {
+        "net": "2026-11-21T02:32:00Z",
+        "precision": "Minute"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-21T02:32:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "2093e4fc-ac8c-4296-a1b5-deececee6a72",
+      "name": "Electron | Night Owls Never Sleep (StriX Launch 14)",
+      "type": "changed",
+      "fields": [
+        "name",
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "name": "Electron | StriX Launch 14",
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "name": "Electron | Night Owls Never Sleep (StriX Launch 14)",
+        "net": "2026-11-27T00:05:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-27T00:05:00Z",
+      "precision": "Minute",
+      "country_code": "NZL",
+      "site": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "8b46d360-6b3b-423f-9036-d5568e485624",
+      "name": "Kinetica 1 | Unknown Payload",
+      "type": "added",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-29T01:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Haiyang Oriental Spaceport"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "5ce59e3a-c343-430f-ae4e-e608ba536754",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-24T07:00:00Z"
+      },
+      "after": {
+        "net": "2026-12-10T07:00:00Z"
+      },
+      "china": true,
+      "hainan": true,
+      "net": "2026-12-10T07:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Wenchang Space Launch Site, People's Republic of China"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "dfac5ab7-7017-454f-b6cf-eeed277a97b5",
+      "name": "LVM-3 | Gaganyaan-1",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z"
+      },
+      "after": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Month",
+      "country_code": "IND",
+      "site": "Satish Dhawan Space Centre, India"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "0cf92611-82a8-4095-a0b4-dda2e74b1fff",
+      "name": "LVM-3 | GSAT-32 (GSAT-N3)",
+      "type": "changed",
+      "fields": [
+        "precision"
+      ],
+      "before": {
+        "precision": "Month"
+      },
+      "after": {
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "IND",
+      "site": "Satish Dhawan Space Centre, India"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "b5a9bccb-30d7-4af6-8ad1-fabb563be53c",
+      "name": "PSLV-XL | TDS-01",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "after": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "IND",
+      "site": "Satish Dhawan Space Centre, India"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "21561fba-dc41-41b3-9d18-e13339fc3396",
+      "name": "H3-30 | IGS Optical Diversification 1",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2027-06-30T00:00:00Z",
+        "precision": "Year Half 1",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "net": "2027-01-10T23:00:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-01-10T23:00:00Z",
+      "precision": "Minute",
+      "country_code": "JPN",
+      "site": "Tanegashima Space Center, Japan"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "7149bbf6-bf27-4115-bb19-8c7c7b93fad9",
+      "name": "KAIROS | Flight 4",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2027-01-22T00:00:00Z",
+      "precision": "Day",
+      "country_code": "JPN",
+      "site": "Spaceport Kii, Japan"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "ac02da00-6e8b-45a0-b829-09d614891e6a",
+      "name": "H3-22 | ETS-9",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "after": {
+        "net": "2027-06-30T00:00:00Z",
+        "precision": "Year Half 1"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-06-30T00:00:00Z",
+      "precision": "Year Half 1",
+      "country_code": "JPN",
+      "site": "Tanegashima Space Center, Japan"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "ca3d56b7-2175-48e4-9a6a-2ecc9996d96b",
+      "name": "New Glenn | Amazon Leo (LN-01)",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-20T07:11:55Z",
+      "id": "f0460950-3cb6-4889-8cbe-707f063d0565",
+      "name": "New Glenn | BlueBird Block 2",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z"
+      },
+      "after": {
+        "net": "2027-12-31T00:00:00Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-11-19T20:33:29Z",
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
