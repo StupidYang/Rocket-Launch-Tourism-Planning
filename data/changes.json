@@ -1,6 +1,46 @@
 {
-  "updated_at": "2026-11-22T06:43:51Z",
+  "updated_at": "2026-11-22T19:35:46Z",
   "items": [
+    {
+      "at": "2026-11-22T19:35:46Z",
+      "id": "dff42a2e-f047-48d7-b260-3888d3a4fe33",
+      "name": "Spectrum | AT-Astra and Others (Spectrum Flight 3)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-26T20:00:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Quarter 4",
+        "status": "To Be Determined"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Quarter 4",
+      "country_code": "NOR",
+      "site": "Andøya Spaceport"
+    },
+    {
+      "at": "2026-11-22T19:35:46Z",
+      "id": "951a341f-236b-42fe-a667-4ab2fcf36eac",
+      "name": "Falcon 9 Block 5 | NROL-136",
+      "type": "removed",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-22T12:23:56Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
     {
       "at": "2026-11-22T00:39:24Z",
       "id": "951a341f-236b-42fe-a667-4ab2fcf36eac",
