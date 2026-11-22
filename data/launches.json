@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-11-22T00:39:24Z",
+  "fetched_at": "2026-11-22T06:43:51Z",
   "source_count": 477,
   "fetched_count": 477,
   "pages": 5,
@@ -31,7 +31,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-11-21T23:04:27Z",
+      "source_updated_at": "2026-11-22T05:25:07Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/951a341f-236b-42fe-a667-4ab2fcf36eac/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-nrol-136"
