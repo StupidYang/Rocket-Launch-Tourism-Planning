@@ -1,6 +1,86 @@
 {
-  "updated_at": "2026-11-23T07:33:32Z",
+  "updated_at": "2026-11-23T23:51:22Z",
   "items": [
+    {
+      "at": "2026-11-23T23:51:22Z",
+      "id": "7bdc412b-c965-4517-a131-f57a01189803",
+      "name": "Ariane 64 Block 2 | Amazon Leo (LE-04)",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-11-24T11:09:00Z",
+        "precision": "Hour",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-11-24T10:45:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-24T10:45:00Z",
+      "precision": "Minute",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
+    {
+      "at": "2026-11-23T23:51:22Z",
+      "id": "8b46d360-6b3b-423f-9036-d5568e485624",
+      "name": "Kinetica 1 | Unknown Payload",
+      "type": "changed",
+      "fields": [
+        "net",
+        "status",
+        "pad"
+      ],
+      "before": {
+        "net": "2026-11-29T01:00:00Z",
+        "status": "To Be Confirmed",
+        "pad": "South China Sea (launch location 3)"
+      },
+      "after": {
+        "net": "2026-12-01T01:45:00Z",
+        "status": "Go for Launch",
+        "pad": "South China Sea (launch location 4)"
+      },
+      "china": true,
+      "hainan": false,
+      "net": "2026-12-01T01:45:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Haiyang Oriental Spaceport"
+    },
+    {
+      "at": "2026-11-23T23:51:22Z",
+      "id": "5591cfa3-6336-41ab-a37a-7c57aa28ab5f",
+      "name": "Falcon 9 Block 5 | NROL-132",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-02T20:30:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-23T23:51:22Z",
+      "id": "864801e2-48bb-401a-a5d4-89b99cbc0539",
+      "name": "Falcon 9 Block 5 | Cygnus CRS-2 NG-26",
+      "type": "added",
+      "fields": [],
+      "china": false,
+      "hainan": false,
+      "net": "2027-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-11-23T07:33:32Z",
       "id": "7bdc412b-c965-4517-a131-f57a01189803",
