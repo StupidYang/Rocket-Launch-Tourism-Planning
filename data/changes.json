@@ -1,6 +1,63 @@
 {
-  "updated_at": "2026-11-25T08:28:48Z",
+  "updated_at": "2026-11-25T21:39:29Z",
   "items": [
+    {
+      "at": "2026-11-25T21:39:29Z",
+      "id": "8bf5f61e-a7e1-41e6-aede-7b87e4beebab",
+      "name": "Falcon 9 Block 5 | CHORUS",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status",
+        "pad"
+      ],
+      "before": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Month",
+        "status": "To Be Determined",
+        "pad": "Unknown Pad"
+      },
+      "after": {
+        "net": "2026-12-04T12:55:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch",
+        "pad": "Space Launch Complex 40"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-04T12:55:00Z",
+      "precision": "Minute",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
+    {
+      "at": "2026-11-25T21:39:29Z",
+      "id": "22e117bf-041c-49d5-9d09-7b180036e143",
+      "name": "Ariane 62 | Metop-SG B1",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision",
+        "status"
+      ],
+      "before": {
+        "net": "2026-12-17T00:00:00Z",
+        "precision": "Day",
+        "status": "To Be Determined"
+      },
+      "after": {
+        "net": "2026-12-18T00:36:00Z",
+        "precision": "Minute",
+        "status": "Go for Launch"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-18T00:36:00Z",
+      "precision": "Minute",
+      "country_code": "GUF",
+      "site": "Guiana Space Centre, French Guiana"
+    },
     {
       "at": "2026-11-25T08:28:48Z",
       "id": "c9605b67-8a53-4239-a8ae-577fe3b79799",
