@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-24T22:24:05Z",
+  "updated_at": "2026-11-25T08:28:48Z",
   "items": [
+    {
+      "at": "2026-11-25T08:28:48Z",
+      "id": "c9605b67-8a53-4239-a8ae-577fe3b79799",
+      "name": "Long March 2F/G | Shenzhou 24",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-25T00:18:00Z",
+      "precision": "Minute",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-24T22:24:05Z",
       "id": "d74afbc7-0de5-491c-be05-4e9c31f736ac",
