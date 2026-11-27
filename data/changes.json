@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-27T08:25:49Z",
+  "updated_at": "2026-11-27T21:14:42Z",
   "items": [
+    {
+      "at": "2026-11-27T21:14:42Z",
+      "id": "a6421db3-7c8a-4cf7-a659-cec195140f7f",
+      "name": "Long March 6A | Unknown Payload",
+      "type": "removed",
+      "fields": [],
+      "china": true,
+      "hainan": false,
+      "net": "2026-11-27T13:00:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Taiyuan Satellite Launch Center, People's Republic of China"
+    },
     {
       "at": "2026-11-27T08:25:49Z",
       "id": "e2523821-9760-4cb4-ad1f-7ce2e30419bd",
@@ -6145,27 +6158,6 @@
       "precision": "Decade",
       "country_code": "GUF",
       "site": "Guiana Space Centre, French Guiana"
-    },
-    {
-      "at": "2026-10-13T14:09:07Z",
-      "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
-      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
-      "type": "changed",
-      "fields": [
-        "precision"
-      ],
-      "before": {
-        "precision": "Hour"
-      },
-      "after": {
-        "precision": "Minute"
-      },
-      "china": false,
-      "hainan": false,
-      "net": "2026-10-19T10:30:00Z",
-      "precision": "Minute",
-      "country_code": "USA",
-      "site": "Cape Canaveral SFS, FL, USA"
     }
   ]
 }
