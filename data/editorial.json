@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "last_attempt_at": "2026-11-26T00:47:29.377Z",
+  "last_attempt_at": "2026-11-27T00:28:22.782Z",
   "checked_at": "2026-10-13T04:09:00Z",
-  "content_updated_at": "2026-11-26T00:47:29.377Z",
+  "content_updated_at": "2026-11-27T00:28:22.782Z",
   "check_status": "partial",
   "scope": "未来60天与2027中国境内发射及北京出发旅游；海南优先，含酒泉及其他国内场址；公开线索不代表全国完整任务清单",
   "items": [
@@ -356,7 +356,7 @@
       "booking_sources": []
     }
   ],
-  "check_note": "2026-11-26部分核查：官方确认神舟二十四号已入轨、对接并进驻空间站，保留历史记录。文昌长征十号甲与梦舟地面合练为研发进展，不是观礼窗口。未核实西昌当次开放与文昌12月线索的正式窗口，其余商业及2027候选未全面核查。",
+  "check_note": "11月27日部分核验：航天科技集团确认西昌11月26日遥感四十九号01组发射成功。太原11月27日长征六号甲仍为第三方待发线索，未核到当次公众预约。文昌12月10日下午仍是第三方线索，官方窗口、当次观礼席位及延期退款未确认；未全量重核其余全国与2027候选。",
   "watchlist": [
     {
       "id": "qingzhou",
@@ -845,6 +845,28 @@
           "published_at": "2026-11-24"
         }
       ]
+    },
+    {
+      "id": "yaogan49-01-20261126",
+      "ll2_id": "b00f0e9a-48d6-4f26-9cb5-7d19169ff7c4",
+      "name": "长征二号丁 · 遥感四十九号01组",
+      "confirmed": true,
+      "country_code": "CHN",
+      "occurred_at": "2026-11-26T09:38:00Z",
+      "checked_at": "2026-11-27T00:28:22.782Z",
+      "result_text": "北京时间11月26日17:38，长征二号丁从西昌发射，遥感四十九号01组卫星顺利进入预定轨道。原第三方待发条目已移出，不再列为当次观礼候选。",
+      "sources": [
+        {
+          "title": "航天科技集团：长二丁发射遥感四十九号01组成功",
+          "url": "https://file.spacechina.com/n25/n2014789/n2014804/c4765681/content.html",
+          "published_at": "2026-11-26"
+        },
+        {
+          "title": "新华社：我国成功发射遥感四十九号01组卫星",
+          "url": "https://www3.xinhuanet.com/tech/20261126/172964da101544038f9eded389c307f7/c.html",
+          "published_at": "2026-11-26"
+        }
+      ]
     }
   ],
   "near_annotations": [
@@ -1018,21 +1040,32 @@
       "ll2_id": "5ce59e3a-c343-430f-ae4e-e608ba536754",
       "site_key": "hainan",
       "pad_contains": "Commercial LC-2",
-      "valid_from": "2026-11-24",
-      "valid_through": "2026-11-24",
-      "review_by": "2026-11-02T00:00:00Z",
-      "checked_at": "2026-10-31T00:58:54.901Z",
+      "valid_from": "2026-12-10",
+      "valid_through": "2026-12-10",
+      "review_by": "2026-12-04T00:00:00Z",
+      "checked_at": "2026-11-27T00:28:22.782Z",
       "evidence_level": "第三方小时级预报；官方窗口待确认",
-      "note": "LL2新增海南商业2号工位长征十二号任务，目标北京时间11月24日（周二）下午，小时级TBC，载荷组号待定。非官方窗口，不能合并成与20日必定连续两场。该目标晚于原周一返京硬截止，需要另算请假及改签成本，不建议为等第二场默认延长行程。",
-      "access_status": "可提前咨询；当次开放、审核、余位及退款未核实",
-      "booking_note": "当次观礼开放、资格、审核截止、准确地点、余位和延期退款均未核实。只作提前咨询；不能沿用11月6日或10月历史票务与交通通告。",
+      "note": "仓库11月26日21:28 UTC完整LL2快照仍将同一任务列为北京时间12月10日（周四）下午、商业2号工位，小时级TBC；海口本地宝也仅称12月10日左右。未核到正式日级窗口、载荷组号或当次开放。该预报若不变，周四晚抵达将错过，不按它锁定不可退行程。",
+      "access_status": "仅有商品线索；当次开售、余位、资格及退改未核实",
+      "booking_note": "11月26日曾在去哪儿聚合页见小粉楼、瑶光商品指向12月10日；11月27日未能重新核实这两条当次商品及条款。不能据此推定仍有票、已经下架或确认发射；先核对当次地点、集合、审核和延期退款。",
       "sources": [
         {
-          "title": "LL2原始记录（依据仓库2026-10-30 22:17 UTC完整快照核对）",
+          "title": "LL2同一任务（按仓库11月26日21:28 UTC快照核对，非官宣）",
           "url": "https://ll.thespacedevs.com/2.3.0/launches/5ce59e3a-c343-430f-ae4e-e608ba536754/",
-          "published_at": "2026-10-30"
+          "published_at": null
+        },
+        {
+          "title": "海口本地宝：预计12月10日左右（第三方）",
+          "url": "https://m.haikou.bendibao.com/news/45860.shtm?src=amap",
+          "published_at": "2026-11-23"
+        },
+        {
+          "title": "去哪儿聚合页（11月26日曾见商品线索，27日当前席位无法核实）",
+          "url": "https://touch.piao.qunar.com/touch/detail_1116574462.html?st=a3clM0QlRTYlOTklQUYlRTclODIlQjklRTklOTclQTglRTclQTUlQTglMjZpZCUzRDUyNTQ1NSUyNnR5cGUlM0QwJTI2aWR4JTNEMzA2JTI2cXQlM0RudWxsJTI2YXBrJTNEMyUyNnNjJTNEVE9VQ0glMjZ1ciUzRCVFNSU4NCU4QiVFNSVCNyU5RSUyNmxyJTNEJUU1JTg0JThCJUU1JUI3JTlFJTI2ZnQlM0QlN0IlN0Q%3D",
+          "published_at": null
         }
-      ]
+      ],
+      "previous_note": "LL2新增海南商业2号工位长征十二号任务，目标北京时间11月24日（周二）下午，小时级TBC，载荷组号待定。非官方窗口，不能合并成与20日必定连续两场。该目标晚于原周一返京硬截止，需要另算请假及改签成本，不建议为等第二场默认延长行程。"
     },
     {
       "ll2_id": "711de6bc-f755-475b-a12f-ec5240da3a11",
