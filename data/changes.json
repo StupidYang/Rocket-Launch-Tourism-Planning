@@ -1,6 +1,54 @@
 {
-  "updated_at": "2026-11-27T00:28:44Z",
+  "updated_at": "2026-11-27T08:25:49Z",
   "items": [
+    {
+      "at": "2026-11-27T08:25:49Z",
+      "id": "e2523821-9760-4cb4-ad1f-7ce2e30419bd",
+      "name": "Kuaizhou 11 | Unknown Payload",
+      "type": "changed",
+      "fields": [
+        "net",
+        "status"
+      ],
+      "before": {
+        "net": "2026-12-01T08:00:00Z",
+        "status": "To Be Confirmed"
+      },
+      "after": {
+        "net": "2026-12-02T11:55:00Z",
+        "status": "Go for Launch"
+      },
+      "china": true,
+      "hainan": false,
+      "net": "2026-12-02T11:55:00Z",
+      "precision": "Hour",
+      "country_code": "CHN",
+      "site": "Jiuquan Satellite Launch Center, People's Republic of China"
+    },
+    {
+      "at": "2026-11-27T08:25:49Z",
+      "id": "9e27a1ed-e81a-4918-b32b-0380cf3a9f8f",
+      "name": "Mir | Demo Flight",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-30T00:00:00Z",
+        "precision": "Month"
+      },
+      "after": {
+        "net": "2026-12-31T00:00:00Z",
+        "precision": "Year"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-12-31T00:00:00Z",
+      "precision": "Year",
+      "country_code": "KOR",
+      "site": "Sea Launch"
+    },
     {
       "at": "2026-11-27T00:28:44Z",
       "id": "2093e4fc-ac8c-4296-a1b5-deececee6a72",
@@ -6116,19 +6164,6 @@
       "hainan": false,
       "net": "2026-10-19T10:30:00Z",
       "precision": "Minute",
-      "country_code": "USA",
-      "site": "Cape Canaveral SFS, FL, USA"
-    },
-    {
-      "at": "2026-10-13T14:09:07Z",
-      "id": "bf2c3027-a314-403e-a416-2bfd5d165ad1",
-      "name": "Falcon 9 Block 5 | Dragon CRS-2 SpX-35",
-      "type": "removed",
-      "fields": [],
-      "china": false,
-      "hainan": false,
-      "net": "2026-10-13T10:33:44Z",
-      "precision": "Second",
       "country_code": "USA",
       "site": "Cape Canaveral SFS, FL, USA"
     }
