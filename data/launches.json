@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "The Space Devs / Launch Library 2",
   "source_url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=100&mode=normal&hide_recent_previous=true",
-  "fetched_at": "2026-11-27T21:14:42Z",
+  "fetched_at": "2026-11-28T00:48:13Z",
   "source_count": 471,
   "fetched_count": 471,
   "pages": 5,
@@ -85,7 +85,7 @@
       "status_id": 1,
       "status": "Go for Launch",
       "status_abbrev": "Go",
-      "source_updated_at": "2026-11-27T20:59:10Z",
+      "source_updated_at": "2026-11-27T21:54:09Z",
       "source_url": "https://ll.thespacedevs.com/2.3.0/launches/d74afbc7-0de5-491c-be05-4e9c31f736ac/",
       "source_level": "third-party",
       "slug": "falcon-9-block-5-cygnus-crs-2-ng-25"
