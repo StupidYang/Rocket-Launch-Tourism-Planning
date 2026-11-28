@@ -1,6 +1,51 @@
 {
-  "updated_at": "2026-11-28T07:44:41Z",
+  "updated_at": "2026-11-28T19:58:43Z",
   "items": [
+    {
+      "at": "2026-11-28T19:58:43Z",
+      "id": "b0d27def-0a88-44c3-a947-1fd5b8503e2c",
+      "name": "Falcon 9 Block 5 | USSF-380",
+      "type": "changed",
+      "fields": [
+        "net"
+      ],
+      "before": {
+        "net": "2026-11-29T04:39:03Z"
+      },
+      "after": {
+        "net": "2026-11-29T06:26:45Z"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-29T06:26:45Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Vandenberg SFB, CA, USA"
+    },
+    {
+      "at": "2026-11-28T19:58:43Z",
+      "id": "d74afbc7-0de5-491c-be05-4e9c31f736ac",
+      "name": "Falcon 9 Block 5 | Cygnus CRS-2 NG-25",
+      "type": "changed",
+      "fields": [
+        "net",
+        "precision"
+      ],
+      "before": {
+        "net": "2026-11-29T15:47:00Z",
+        "precision": "Minute"
+      },
+      "after": {
+        "net": "2026-11-29T15:47:23Z",
+        "precision": "Second"
+      },
+      "china": false,
+      "hainan": false,
+      "net": "2026-11-29T15:47:23Z",
+      "precision": "Second",
+      "country_code": "USA",
+      "site": "Cape Canaveral SFS, FL, USA"
+    },
     {
       "at": "2026-11-28T07:44:41Z",
       "id": "b0d27def-0a88-44c3-a947-1fd5b8503e2c",
@@ -6111,51 +6156,6 @@
       "hainan": false,
       "net": "2026-11-30T00:00:00Z",
       "precision": "Month",
-      "country_code": "GUF",
-      "site": "Guiana Space Centre, French Guiana"
-    },
-    {
-      "at": "2026-10-13T22:43:13Z",
-      "id": "22e117bf-041c-49d5-9d09-7b180036e143",
-      "name": "Ariane 62 | Metop-SG B1",
-      "type": "changed",
-      "fields": [
-        "net"
-      ],
-      "before": {
-        "net": "2026-11-30T00:00:00Z"
-      },
-      "after": {
-        "net": "2026-12-31T00:00:00Z"
-      },
-      "china": false,
-      "hainan": false,
-      "net": "2026-12-31T00:00:00Z",
-      "precision": "Month",
-      "country_code": "GUF",
-      "site": "Guiana Space Centre, French Guiana"
-    },
-    {
-      "at": "2026-10-13T22:43:13Z",
-      "id": "0b85fcca-5252-48d7-9ccb-c10b1da9d183",
-      "name": "Ariane 62 | Galileo L15 (FOC FM28 & FM31)",
-      "type": "changed",
-      "fields": [
-        "net",
-        "precision"
-      ],
-      "before": {
-        "net": "2026-12-31T00:00:00Z",
-        "precision": "Quarter 4"
-      },
-      "after": {
-        "net": "2027-03-31T00:00:00Z",
-        "precision": "Quarter 1"
-      },
-      "china": false,
-      "hainan": false,
-      "net": "2027-03-31T00:00:00Z",
-      "precision": "Quarter 1",
       "country_code": "GUF",
       "site": "Guiana Space Centre, French Guiana"
     }
